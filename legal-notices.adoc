@@ -1,0 +1,18 @@
+---
+permalink: legal-notices.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= 法的通知
+:icons: font
+:imagesdir: ../media/
+
+
+link:https://raw.githubusercontent.com/NetAppDocs/common/main/_include/common-legal-notices.adoc[""]
+
+link:https://raw.githubusercontent.com/NetAppDocs/common/main/_include/open-source-notice-intro.adoc[""]
+
+* link:media/notice_cloud_manager_3.9.pdf["Cloud Manager 3.9 に関する注意事項"^]
+* link:media/notice_cloud_tiering.pdf["Cloud Tiering への通知"^]
+

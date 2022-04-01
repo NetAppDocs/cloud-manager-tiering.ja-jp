@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: reference-google-support.html 
+keywords: google, gcp, regions, google regions, gcp regions, storage class, standard, nearline, coldline, archive 
+summary: Cloud Tiering は、複数の Google Cloud ストレージクラスとほとんどのリージョンをサポートしています。 
+---
+= サポートされている Google Cloud ストレージクラスとリージョン
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Tiering は、複数の Google Cloud ストレージクラスとほとんどのリージョンをサポートしています。
+
+
+
+== サポートされている GCP ストレージクラス
+
+GCP へのデータ階層化を設定すると、 Cloud Tiering は、アクセス頻度の低いデータに _Standard_storage クラスを自動的に使用します。Cloud Tiering では、ライフサイクルルールを適用して、特定の日数が経過したデータを _Standard_storage クラスから他のストレージクラスに移行できます。次のストレージクラスから選択できます。
+
+* ニアライン
+* コールドライン（ Coldline ）
+* Archive サービスの略
+
+
+別のストレージクラスを選択しない場合、データは _Standard_storage クラスに残り、ルールは適用されません。
+
+Cloud Tiering ライフサイクルルールを設定する場合、 Google アカウントでバケットを設定するときに、ライフサイクルルールを設定しないでください。
+
+https://cloud.google.com/storage/docs/storage-classes["Google Cloud Storage のクラスをご確認ください"^]。
+
+
+
+== サポートされている Google Cloud リージョン
+
+Cloud Tiering は、次のリージョンをサポートしています。
+
+
+
+=== 南北アメリカ
+
+* アイオワ
+* ロサンゼルス
+* モントリオール
+* N（バージニア州）
+* オレゴン
+* サンパウロ
+* サウスカロライナ
+
+
+
+
+=== アジア太平洋地域
+
+* 香港
+* ムンバイ
+* 大阪
+* シンガポール
+* シドニー
+* 台湾
+* 東京
+
+
+
+
+=== ヨーロッパ
+
+* ベルギー
+* フィンランド
+* フランクフルト
+* ロンドン
+* オランダ
+* チューリッヒ
+

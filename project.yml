@@ -1,0 +1,109 @@
+---
+settings:
+  name: Cloud Tiering
+  platform: cloud
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: ja-jp,us-en,zh-cn,ko-kr
+sidebar:
+  entries:
+  - title: Cloud Manager のすべてのドキュメント
+    url: https://docs.netapp.com/us-en/cloud-manager-family
+  - title: Cloud Tiering のドキュメント
+    url: "/index.html"
+  - title: リリースノート
+    url: "/whats-new.html"
+  - title: はじめに
+    entries:
+    - title: Cloud Tiering の詳細をご確認ください
+      url: "/concept-cloud-tiering.html"
+    - title: オンプレミスのデータをクラウドに階層化
+      entries:
+      - title: Amazon S3 への階層化
+        url: "/task-tiering-onprem-aws.html"
+      - title: Azure BLOB ストレージへの階層
+        url: "/task-tiering-onprem-azure.html"
+      - title: Google Cloud Storage への階層化
+        url: "/task-tiering-onprem-gcp.html"
+      - title: StorageGRID への階層化
+        url: "/task-tiering-onprem-storagegrid.html"
+      - title: S3 オブジェクトストレージへの階層化
+        url: "/task-tiering-onprem-s3-compat.html"
+    - title: ライセンスをセットアップする
+      url: "/task-licensing-cloud-tiering.html"
+    - title: よく寄せられる質問
+      url: "/faq-cloud-tiering.html"
+  - title: Cloud Tiering を使用
+    entries:
+    - title: クラウドのパフォーマンスをテスト
+      url: "/task-tiering-test.html"
+    - title: データの階層化を管理します
+      url: "/task-managing-tiering.html"
+    - title: すべてのクラスタについて階層化の概要を表示します
+      url: "/task-tiering-onprem-overview.html"
+    - title: 参照
+      entries:
+      - title: サポートされている Amazon S3 ストレージのクラスとリージョン
+        url: "/reference-aws-support.html"
+      - title: サポートされている Azure アクセス階層とリージョン
+        url: "/reference-azure-support.html"
+      - title: サポートされている Google Cloud ストレージクラスとリージョン
+        url: "/reference-google-support.html"
+  - title: 知識とサポート
+    entries:
+    - title: サポートに登録します
+      url: "/task-support-registration.html"
+    - title: ヘルプを表示します
+      url: "/task-get-help.html"
+  - title: 法的通知
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: はじめに
+    links:
+    - title: Cloud Tiering の詳細をご確認ください
+      url: concept-cloud-tiering.html
+    - title: 新機能
+      url: whats-new.html
+    - title: ライセンスをセットアップする
+      url: task-licensing-cloud-tiering.html
+  - title: オンプレミスの ONTAP データをクラウドに階層化
+    links:
+    - title: Amazon S3 への階層化
+      url: task-tiering-onprem-aws.html
+    - title: Azure Blob に階層化
+      url: task-tiering-onprem-azure.html
+    - title: Google Cloud に階層化します
+      url: task-tiering-onprem-gcp.html
+    - title: StorageGRID への階層化
+      url: task-tiering-onprem-storagegrid.html
+    - title: 汎用 S3 への階層化
+      url: task-tiering-onprem-s3-compat.html
+  - title: 階層化設定を管理します
+    links:
+    - title: ボリュームの階層化ポリシーを変更します
+      url: task-managing-tiering.html#changing-a-volumes-tiering-policy
+    - title: クラスタの階層化情報を確認します
+      url: task-managing-tiering.html#reviewing-tiering-info-for-a-cluster
+    - title: 追加のボリュームのデータを階層化
+      url: task-managing-tiering.html#tiering-data-from-additional-volumes
+    - title: クラウドのデータを高パフォーマンス階層に戻します
+      url: task-managing-tiering.html#migrating-data-from-the-cloud-tier-back-to-the-performance-tier
+    - title: アグリゲートの階層化設定を管理します
+      url: task-managing-tiering.html#managing-tiering-settings-on-aggregates
+  - title: ブログコミュニティ
+    links:
+    - title: ネットアップコミュニティ
+      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+    - title: Cloud Central のブログです
+      url: https://cloud.netapp.com/blog
+    - title: クラウドに関する Web セミナー
+      url: https://cloud.netapp.com/events
+  - title: その他のリソース
+    links:
+    - title: Cloud Central のユースケース
+      url: https://cloud.netapp.com/cloud-tiering
+product-family: {}

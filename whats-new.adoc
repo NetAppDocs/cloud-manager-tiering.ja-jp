@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, tiering' 
+summary: Cloud Tiering の新機能をご確認ください。 
+---
+= Cloud Tiering の新機能
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Tiering の新機能をご確認ください。
+
+
+
+== 2021 年 9 月 2 日
+
+
+
+=== FabricPool ライセンスは Cloud Tiering BYOL ライセンスに置き換えられています。
+
+Cloud Tiering サービスを使用した、 Cloud Manager でサポートされる階層化構成に、新しい * Cloud Tiering * ライセンスが追加されました。複数のオンプレミス ONTAP クラスタにわたって使用できるフローティングライセンスです。過去に使用したことのある * FabricPool * ライセンスは、 Cloud Manager でサポートされていない構成にのみ保持されます。
+
+link:task-licensing-cloud-tiering.html#use-a-cloud-tiering-byol-license["新しい Cloud Tiering ライセンスの詳細については、こちらをご覧ください"]。
+
+
+
+=== オンプレミスの ONTAP クラスタから S3 互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します。
+
+Simple Storage Service （ S3 ）プロトコルを使用する任意の Object Storage サービスにアクセス頻度の低いデータを階層化できるようになりました。 link:task-tiering-onprem-s3-compat.html["S3 互換オブジェクトストレージへのデータの階層化方法を参照してください"]。
+
+
+
+== 2021 年 7 月 7 日
+
+
+
+=== Connector は、データを Azure BLOB ストレージに階層化するときにオンプレミスで実行できます。
+
+Azure VNet にインストールされたコネクタを使用する必要はなくなりました。Azure BLOB ストレージにデータを階層化する場合は、オンプレミスのホストで Connector を実行できます。
+
+
+
+== 2021 年 6 月 7 日
+
+
+
+=== 特定のクラウドプロバイダのストレージで新しい階層化クラスを使用できるようになりました。
+
+以前のリリースでは、 Amazon S3 または Google Cloud オブジェクトストレージを使用している場合、 30 日後に階層化データを Standard ストレージクラスから別のストレージクラスに移行できました。このリリースには、次の新機能が追加されてい
+
+* 階層化データを対費用効果の高い階層に移動する日数を選択できます。これをデータの「ライフサイクル管理」と呼びます。
+* Azure Blob で _Cool _ アクセス階層がサポートされるようになりました。
+* Google Cloud Storage では、階層化されたデータを複数のストレージ階層に長期的に移動できます。たとえば、階層化されたデータを 45 日後に _Standard_class から _Nearline_class に移動し、その後 75 日後に _Coldline_class に移動してから、 270 日後に _Archive_class に移動できます。
+
+
+
+
+=== これで、クラウド階層からパフォーマンス階層にデータをプロアクティブに戻すことができます。
+
+この機能は、ボリュームでの階層化の使用を停止する場合や、すべてのユーザデータを高パフォーマンス階層に保持しながら Snapshot コピーをクラウド階層に保持する場合に便利です。この機能は、 ONTAP 9.8 以降を使用している場合に使用できます。
+
+方法を参照してください link:task-managing-tiering.html#migrating-data-from-the-cloud-tier-back-to-the-performance-tier["データを高パフォーマンス階層に戻します"]。
+
+
+
+== 2021 年 5 月 2 日
+
+
+
+=== これで、階層化ポリシーを適用する際にすべてのボリュームを選択できるようになりました。
+
+ONTAP システムから階層化するボリュームを選択するときに、 [Tier Volumes] ページに [*All *VOLUMES ] チェックボックスが表示され、すべてのボリュームに同じポリシーを簡単に適用できるようになりました。 link:task-managing-tiering.html#tiering-data-from-additional-volumes["クラスタ内のすべてのボリュームの選択方法を参照してください"]。
+
+
+
+=== 「冷却」日数を 183 日まで設定できるようになりました。
+
+ONTAP 9.8 以降を使用している場合、ボリューム内のデータを非アクティブのままオブジェクトストレージに移動する期間を決定する「クーリング期間」を変更する必要がある場合は、最大 183 日（ 63 日以内）まで指定できるようになりました。
+
+
+
+== 2021 年 3 月 8 日
+
+
+
+=== Google Cloud Storage への階層化で、ライフサイクルルールを使用できるようになりました。
+
+Google Cloud Storage に階層化する場合は、ライフサイクルルールを適用して、階層化されたデータを Standard ストレージクラスから 30 日後に低コストの Nearline 、 Coldline 、または Archive ストレージに移行することができます。

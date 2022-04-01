@@ -1,0 +1,206 @@
+---
+sidebar: sidebar 
+permalink: task-tiering-onprem-s3-compat.html 
+keywords: data tiering, fabricpool, cloud tiering, tiering cold data, tiering inactive data, tiering aff, tiering fas, tiering ontap, tiering volumes, tier data, tier cold data, tier fas, tier aff, tier ontap, s3, tier to s3, fabricpool s3 
+summary: Simple Storage Service （ S3 ）プロトコルを使用する任意のオブジェクトストレージサービスに、アクセス頻度の低いデータを階層化することによって、オンプレミスの ONTAP クラスタの空きスペースを確保します。 
+---
+= オンプレミスの ONTAP クラスタから S3 オブジェクトストレージへデータを階層化する
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Simple Storage Service （ S3 ）プロトコルを使用する任意のオブジェクトストレージサービスに、アクセス頻度の低いデータを階層化することによって、オンプレミスの ONTAP クラスタの空きスペースを確保します。
+
+[CAUTION]
+====
+クラウド階層として正式にサポートされていないオブジェクトストアを使用する場合は、以下の手順に従ってください。お客様は、オブジェクトストアが要件を満たしていることをテストし、確認する必要があります。
+
+ネットアップは、サードパーティの Object Store Service が原因で発生した問題、特に製品が製造されたサードパーティとのサポート契約に同意していない問題については、サポートも責任も負いません。また、ネットアップは、付随する損害について責任を負わないこと、またはサードパーティ製品に対するサポートを提供するためにその他の義務を負うことに同意するものとします。
+
+====
+
+
+== クイックスタート
+
+これらの手順を実行すると、すぐに作業を開始できます。また、残りのセクションまでスクロールして詳細を確認することもできます。
+
+[role="quick-margin-para"]
+次のものが必要です。
+
+* ONTAP 9.8 以降を実行しているオンプレミスの ONTAP クラスタ。ユーザが指定したポートを介して S3 互換オブジェクトストレージに接続されます。 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["クラスタの検出方法について説明します"^]。
+* ONTAP クラスタがバケットにアクセスできるようにするための、オブジェクトストレージサーバの FQDN 、アクセスキー、およびシークレットキー。
+* オンプレミスにインストールされているコネクタ。
+* ONTAP クラスタ、 S3 互換オブジェクトストレージ、およびクラウド階層化サービスへのアウトバウンド HTTPS 接続を可能にするコネクタのネットワーク。
+
+
+[role="quick-margin-para"]
+Cloud Manager で、オンプレミスの作業環境を選択し、階層化サービスの「 * 有効化」をクリックして、画面の指示に従ってデータを S3 対応のオブジェクトストレージに階層化します。
+
+[role="quick-margin-para"]
+従量課金制のクラウド階層化：クラウドプロバイダからの従量課金制サブスクリプション、 NetApp Cloud Tiering のお客様所有のライセンス、またはその両方の組み合わせで利用できます。
+
+* から Cloud Manager PAYGO の提供にサブスクライブする https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["AWS Marketplace"^]、 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure Marketplace で入手できます"^]または https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP Marketplace"^]をクリックし、 * Subscribe * をクリックして指示に従います。
+* Cloud Tiering BYOL ライセンスを使用して支払う場合は、 mailto:ng-cloud-tiering@netapp.com ？ subject=Licensing [ 購入が必要な場合はお問い合わせください ] のあとに link:task-licensing-cloud-tiering.html#add-cloud-tiering-byol-licenses-to-your-account["Cloud Manager Digital Wallet からアカウントに追加します"]。
+
+
+
+
+== 要件
+
+ONTAP クラスタのサポートを確認し、ネットワークをセットアップし、オブジェクトストレージを準備します。
+
+次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+
+image:diagram_cloud_tiering_s3_compat.png["クラウド階層化サービスとオンプレミスのコネクタ、 ONTAP クラスタへの接続を含むコネクタ、 ONTAP クラスタとオブジェクトストレージの間の接続を示すアーキテクチャイメージ。アクティブなデータは ONTAP クラスタに格納され、アクセス頻度の低いデータはオブジェクトストレージに格納されます。」"]
+
+
+NOTE: コネクタと S3 互換性のあるオブジェクトストレージサーバの間の通信は、オブジェクトストレージのセットアップにのみ使用されます。
+
+
+
+=== ONTAP クラスタの準備
+
+S3 互換オブジェクトストレージにデータを階層化するときは、 ONTAP クラスタが次の要件を満たしている必要があります。
+
+サポートされている ONTAP プラットフォーム:: AFF システム、またはオール SSD アグリゲートまたはオール HDD アグリゲートを使用する FAS システムからデータを階層化できます。
+サポートされる ONTAP のバージョン:: ONTAP 9.8 以降
+クラスタネットワークの要件::
++
+--
+* ONTAP クラスタは、ユーザ指定のポートから S3 互換オブジェクトストレージへの HTTPS 接続を開始します（階層化のセットアップ時にポートを設定可能）。
++
+ONTAP は、オブジェクトストレージとの間でデータの読み取りと書き込みを行います。オブジェクトストレージが開始されることはなく、応答するだけです。
+
+* コネクタからのインバウンド接続が必要です。この接続はオンプレミスにある必要があります。
++
+クラスタと Cloud Tiering Service の間の接続は必要ありません。
+
+* 階層化するボリュームをホストする各 ONTAP ノードにクラスタ間 LIF が 1 つ必要です。LIF は、 ONTAP がオブジェクトストレージへの接続に使用する IPspace に関連付けられている必要があります。
++
+データの階層化を設定すると、使用する IPspace を入力するように求められます。各 LIF を関連付ける IPspace を選択する必要があります。これは、「デフォルト」の IPspace または作成したカスタム IPspace です。の詳細を確認してください https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["LIF"^] および https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["IPspace"^]。
+
+
+
+--
+サポートされるボリュームとアグリゲート:: クラウド階層化が可能なボリュームの総数は、 ONTAP システムのボリュームの数よりも少なくなる可能性があります。これは、一部のアグリゲートからボリュームを階層化できないためです。については、 ONTAP のドキュメントを参照してください link:https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html#functionality-or-features-not-supported-by-fabricpool["FabricPool でサポートされていない機能"^]。
+
+
+
+TIP: Cloud Tiering は、 FlexVol と FlexGroup の両方のボリュームをサポートしています。
+
+
+
+=== ONTAP クラスタを検出しています
+
+コールドデータの階層化を開始する前に、オンプレミスの ONTAP 作業環境を Cloud Manager キャンバスに作成する必要があります。
+
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["クラスタの検出方法について説明します"^]。
+
+
+
+=== S3 互換オブジェクトストレージを準備しています
+
+S3 互換オブジェクトストレージは、次の要件を満たしている必要があります。
+
+S3 クレデンシャル:: S3 互換オブジェクトストレージへの階層化を設定すると、 S3 バケットの作成または既存の S3 バケットの選択を求められます。S3 のアクセスキーとシークレットキーを使用してクラウド階層化を提供する必要があります。Cloud Tiering は、キーを使用してバケットにアクセスします。
++
+--
+これらのアクセスキーは、次の権限を持つユーザに関連付ける必要があります。
+
+[source, json]
+----
+"s3:ListAllMyBuckets",
+"s3:ListBucket",
+"s3:GetObject",
+"s3:PutObject",
+"s3:DeleteObject",
+"s3:CreateBucket"
+----
+--
+
+
+
+
+=== コネクタの作成または切り替え
+
+データをクラウドに階層化するにはコネクタが必要です。S3 互換のオブジェクトストレージにデータを階層化する場合は、オンプレミスにコネクタが必要です。新しいコネクターをインストールするか、現在選択されているコネクターがオンプレミスにあることを確認する必要があります。
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタについて説明します"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Linux ホストへのコネクタのインストール"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["コネクタ間の切り替え"^]
+
+
+
+
+=== コネクタのネットワークを準備しています
+
+コネクタに必要なネットワーク接続があることを確認します。
+
+.手順
+. コネクタが取り付けられているネットワークで次の接続が有効になっていることを確認します。
++
+** クラウドの階層化サービスへのアウトバウンドのインターネット接続 ポート 443 （ HTTPS ）
+** ポート 443 から S3 互換オブジェクトストレージへの HTTPS 接続
+** ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続
+
+
+
+
+
+
+== 最初のクラスタから S3 互換オブジェクトストレージにアクセス頻度の低いデータを階層化しています
+
+環境を準備したら、最初のクラスタからアクセス頻度の低いデータの階層化を開始します。
+
+.必要なもの
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["オンプレミスの作業環境"^]。
+* S3 互換性のあるオブジェクトストレージサーバの FQDN と HTTPS 通信に使用するポート。
+* 必要な S3 権限を持つアクセスキーとシークレットキー。
+
+
+.手順
+. オンプレミスクラスタを選択
+. 右側のパネルで、階層化サービスの * 有効化 * をクリックします。
++
+image:screenshot_setup_tiering_onprem.png["オンプレミスの ONTAP 作業環境を選択したあとに画面の右側に表示される階層化オプションを示すスクリーンショット。"]
+
+. * プロバイダを選択 * ：「 * S3 Compatible * 」を選択し、「 * Continue * 」をクリックします。
+. 「 * Tiering Setup * 」ページに記載された手順を実行します。
++
+.. * サーバ * ： S3 互換オブジェクトストレージサーバの FQDN 、サーバとの HTTPS 通信に ONTAP が使用するポート、および必要な S3 権限を持つアカウントのアクセスキーとシークレットキーを入力します。
+.. * Bucket * ：新しいバケットを追加するか既存のバケットを選択し、 * Continue * をクリックします。
+.. * クラスタネットワーク * ： ONTAP がオブジェクトストレージへの接続に使用する IPspace を選択し、「 * 続行」をクリックします。
++
+適切な IPspace を選択することで、 Cloud Tiering が、 ONTAP から S3 互換オブジェクトストレージへの接続をセットアップできるようになります。
+
+
+
+. _Success_page で * Continue * をクリックして、ボリュームを今すぐセットアップします。
+. _Tier Volume_page で、階層化を設定するボリュームを選択し、 * Continue * ：
++
+** すべてのボリュームを選択するには、タイトル行（image:button_backup_all_volumes.png[""]）をクリックし、 * ボリュームの設定 * をクリックします。
+** 複数のボリュームを選択するには、各ボリュームのボックス（image:button_backup_1_volume.png[""]）をクリックし、 * ボリュームの設定 * をクリックします。
+** 単一のボリュームを選択するには、行（または）をクリックします image:screenshot_edit_icon.gif["鉛筆アイコンを編集します"] アイコン）をクリックします。
++
+image:screenshot_tiering_modify_volumes.gif["単一のボリューム、複数のボリューム、またはすべてのボリュームを選択する方法、および選択したボリュームを変更するボタンを示すスクリーンショット。"]
+
+
+
+. _Tiering Policy_Dialog で、階層化ポリシーを選択し、必要に応じて選択したボリュームのクーリング日数を調整して、 * 適用 * をクリックします。
++
+link:concept-cloud-tiering.html#volume-tiering-policies["ボリューム階層化ポリシーとクーリング期間の詳細を確認できます"]。
+
++
+image:screenshot_tiering_policy_settings.png["設定可能な階層化ポリシーの設定を示すスクリーンショット。"]
+
+
+
+これで、クラスタのボリュームから S3-compatible オブジェクトストレージへのデータ階層化が設定されました。
+
+link:task-licensing-cloud-tiering.html["Cloud Tiering サービスに登録してください"]。
+
+クラスタを追加したり、クラスタ上のアクティブなデータとアクセス頻度の低いデータに関する情報を確認したりできます。詳細については、を参照してください link:task-managing-tiering.html["クラスタからのデータ階層化の管理"]。

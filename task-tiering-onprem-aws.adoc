@@ -1,0 +1,246 @@
+---
+sidebar: sidebar 
+permalink: task-tiering-onprem-aws.html 
+keywords: data tiering, fabricpool, cloud tiering, tiering cold data, tiering inactive data, tiering aff, tiering fas, tiering ontap, tiering volumes, tier data, tier cold data, tier fas, tier aff, tier ontap, aws, amazon, s3 
+summary: アクセス頻度の低いデータを Amazon S3 に階層化することで、オンプレミスの ONTAP クラスタの空きスペースを確保します。 
+---
+= オンプレミスの ONTAP クラスタから Amazon S3 へデータを階層化する
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+アクセス頻度の低いデータを Amazon S3 に階層化することで、オンプレミスの ONTAP クラスタの空きスペースを確保します。
+
+
+
+== クイックスタート
+
+これらの手順を実行すると、すぐに作業を開始できます。また、残りのセクションまでスクロールして詳細を確認することもできます。
+
+[role="quick-margin-para"]
+次のものが必要です。
+
+* ONTAP 9.2 以降を実行し、 Amazon S3 への HTTPS 接続を使用するオンプレミスの ONTAP クラスタ。 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["クラスタの検出方法について説明します"^]。
+* アクセスキーとを持つ AWS アカウント <<Preparing Amazon S3,必要な権限>> つまり、 ONTAP クラスタはアクセス頻度の低いデータを S3 との間で階層化できます。
+* AWS VPC またはオンプレミスにインストールされたコネクタ。
+* ONTAP クラスタ、 S3 ストレージ、およびクラウド階層化サービスへのアウトバウンド HTTPS 接続を可能にするコネクタのネットワーク。
+
+
+[role="quick-margin-para"]
+Cloud Manager で、オンプレミスの作業環境を選択し、階層化サービスの「 * 有効化」をクリックして、プロンプトに従って Amazon S3 にデータを階層化します。
+
+[role="quick-margin-para"]
+無償トライアルの終了後、従量課金制のサブスクリプション、 ONTAP Cloud Tiering のライセンス、またはその両方を組み合わせて使用したクラウド階層化の料金をお支払いください。
+
+* AWS Marketplace でサブスクライブするには、 https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["Cloud Manager Marketplace の製品に移動します"^]をクリックし、 * Subscribe * をクリックして、画面の指示に従います。
+* Cloud Tiering BYOL ライセンスを使用して支払う場合は、 mailto:ng-cloud-tiering@netapp.com ？ subject=Licensing [ 購入が必要な場合はお問い合わせください ] のあとに link:task-licensing-cloud-tiering.html#add-cloud-tiering-byol-licenses-to-your-account["Cloud Manager Digital Wallet からアカウントに追加します"]。
+
+
+
+
+== 要件
+
+ONTAP クラスタのサポートを確認し、ネットワークをセットアップし、オブジェクトストレージを準備します。
+
+次の図は、各コンポーネントとその間の準備に必要な接続を示しています。
+
+image:diagram_cloud_tiering_aws.png["「クラウドプロバイダのコネクタへの接続、 ONTAP クラスタへの接続を含むクラウド階層化サービス、クラウドプロバイダ内の ONTAP クラスタとオブジェクトストレージの接続を含むアーキテクチャの図。アクティブなデータは ONTAP クラスタに格納され、アクセス頻度の低いデータはオブジェクトストレージに格納されます。」"]
+
+
+NOTE: コネクタと S3 の間の通信は、オブジェクトストレージのセットアップにのみ使用されます。コネクタは、クラウドではなくオンプレミスに配置できます。
+
+
+
+=== ONTAP クラスタの準備
+
+データを Amazon S3 に階層化するときは、 ONTAP クラスタが次の要件を満たしている必要があります。
+
+サポートされている ONTAP プラットフォーム::
++
+--
+* ONTAP 9.8 以降： FAS システム、またはオール SSD アグリゲートまたはオール HDD アグリゲートを使用する AFF システムからデータを階層化できます。
+* ONTAP 9.7 以前を使用している場合： AFF システムまたはオール SSD アグリゲートを使用する FAS システムからデータを階層化できます。
+
+
+--
+サポートされる ONTAP のバージョン:: ONTAP 9.2 以降
+クラスタネットワークの要件::
++
+--
+* ONTAP クラスタが、ポート 443 から Amazon S3 への HTTPS 接続を開始します。
++
+ONTAP は、オブジェクトストレージとの間でデータの読み取りと書き込みを行います。オブジェクトストレージが開始されることはなく、応答するだけです。
+
++
+AWS Direct Connect を使用するとパフォーマンスが向上し、データ転送コストは削減されますが、 ONTAP クラスタと S3 の間では必要ありません。ただしそのようにすることがベストプラクティスとして推奨されます。
+
+* AWS VPC または自社運用環境のコネクタからのインバウンド接続が必要です。
++
+クラスタと Cloud Tiering Service の間の接続は必要ありません。
+
+* 階層化するボリュームをホストする各 ONTAP ノードにクラスタ間 LIF が 1 つ必要です。LIF は、 ONTAP がオブジェクトストレージへの接続に使用する IPspace に関連付けられている必要があります。
++
+データの階層化を設定すると、使用する IPspace を入力するように求められます。各 LIF を関連付ける IPspace を選択する必要があります。これは、「デフォルト」の IPspace または作成したカスタム IPspace です。の詳細を確認してください https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["LIF"^] および https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["IPspace"^]。
+
+
+
+--
+サポートされるボリュームとアグリゲート:: クラウド階層化が可能なボリュームの総数は、 ONTAP システムのボリュームの数よりも少なくなる可能性があります。これは、一部のアグリゲートからボリュームを階層化できないためです。については、 ONTAP のドキュメントを参照してください link:https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html#functionality-or-features-not-supported-by-fabricpool["FabricPool でサポートされていない機能"^]。
+
+
+
+NOTE: Cloud Tiering は、 ONTAP 9.5 以降で FlexGroup ボリュームをサポートしています。セットアップは他のボリュームと同じように機能します。
+
+
+
+=== ONTAP クラスタを検出しています
+
+コールドデータの階層化を開始する前に、 Cloud Manager でオンプレミスの ONTAP 作業環境を作成する必要があります。
+
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["クラスタの検出方法について説明します"^]。
+
+
+
+=== コネクタの作成または切り替え
+
+データをクラウドに階層化するにはコネクタが必要です。AWS S3 にデータを階層化する場合は、 AWS VPC またはオンプレミスのコネクタを使用できます。新しいコネクタを作成するか、現在選択されているコネクタが AWS またはオンプレミスにあることを確認する必要があります。
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["コネクタについて説明します"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html["AWS でコネクタを作成する"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["Linux ホストへのコネクタのインストール"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["コネクタ間の切り替え"^]
+
+
+
+
+=== コネクタのネットワークを準備しています
+
+コネクタに必要なネットワーク接続があることを確認します。コネクタは、オンプレミスまたは AWS にインストールできます。
+
+.手順
+. コネクタが取り付けられているネットワークで次の接続が有効になっていることを確認します。
++
+** クラウドの階層化サービスへのアウトバウンドのインターネット接続 ポート 443 （ HTTPS ）
+** ポート 443 から S3 への HTTPS 接続
+** ONTAP クラスタ管理 LIF へのポート 443 経由の HTTPS 接続
+
+
+. 必要に応じて、 S3 に対する VPC エンドポイントを有効にします。
++
+ONTAP クラスタから VPC への Direct Connect または VPN 接続が確立されている環境で、コネクタと S3 の間の通信を AWS 内部ネットワークのままにする場合は、 S3 への VPC エンドポイントを推奨します。
+
+
+
+
+
+=== Amazon S3 を準備しています
+
+新しいクラスタにデータ階層化を設定するときは、 S3 バケットを作成するか、コネクタが設定されている AWS アカウントで既存の S3 バケットを選択するように求められます。AWS アカウントには、 Cloud Tiering で入力できる権限とアクセスキーが必要です。ONTAP クラスタは、アクセスキーを使用して S3 との間でデータを階層化します。
+
+S3 バケットはに配置する必要があります link:reference-aws-support.html#supported-aws-regions["Cloud Tiering をサポートするリージョン"]。
+
+
+NOTE: 階層化データが一定の日数後にに移行する低コストのストレージクラスを使用するように Cloud Tiering を設定する場合、 AWS アカウントでバケットのセットアップ時にライフサイクルルールを選択しないでください。Cloud Tiering は、ライフサイクルの移行を管理します。
+
+.手順
+. IAM ユーザに次の権限を付与します。
++
+[source, json]
+----
+"s3:ListAllMyBuckets",
+"s3:ListBucket",
+"s3:GetBucketLocation",
+"s3:GetObject",
+"s3:PutObject",
+"s3:DeleteObject"
+----
++
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html["AWS ドキュメント：「 Creating a Role to Delegate Permissions to an IAM User"^]
+
+. アクセスキーを作成または検索します。
++
+クラウド階層化は、 ONTAP クラスタにアクセスキーを渡します。クレデンシャルはクラウド階層化サービスに保存されません。
+
++
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html["AWS ドキュメント：「 Managing Access Keys for IAM Users"^]
+
+
+
+
+
+== 最初のクラスタから Amazon S3 へのアクセス頻度の低いデータの階層化
+
+AWS 環境を準備したら、最初のクラスタからアクセス頻度の低いデータの階層化を開始します。
+
+.必要なもの
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["オンプレミスの作業環境"^]。
+* 必要な S3 権限を持つ IAM ユーザの AWS アクセスキー。
+
+
+.手順
+. オンプレミスクラスタを選択
+. 階層化サービスの * 有効化 * をクリックします。
++
+image:screenshot_setup_tiering_onprem.png["オンプレミス ONTAP 作業環境を選択した後に画面の右側に表示される [ 有効 ] オプションを示すスクリーンショット。"]
+
+. * プロバイダの選択 * ：このページは、オンプレミスコネクタを使用している場合にのみ表示されます。Amazon Web Services を選択し、 * Continue * をクリックします。
+. 「 * Tiering Setup * 」ページに記載された手順を実行します。
++
+.. * S3 Bucket * ：新しい S3 バケットを追加するか、 prefix_fabric-pool_ で始まる既存の S3 バケットを選択し、 * Continue * をクリックします。
++
+オンプレミスコネクタを使用する場合は、作成する既存の S3 バケットまたは新しい S3 バケットへのアクセスを提供する AWS アカウント ID を入力する必要があります。
+
++
+コネクタの IAM ポリシーではインスタンスが指定したプレフィックスのバケットに対して S3 処理を実行できるため、 _fabric-pool_prefix が必要です。たとえば、 S3 バケット _fabric-pool-AFF1_、 AFF1 はクラスタの名前です。
+
+.. * ストレージクラスのライフサイクル * ： Cloud Tiering は、階層化されたデータのライフサイクルの移行を管理します。データは _Standard_class から始まりますが、データを特定の日数後に別のクラスに移動するルールを作成できます。
++
+階層化データの移行先となる S3 ストレージクラスと、データを移動するまでの日数を選択し、 * Continue * をクリックします。たとえば、次のスクリーンショットは、オブジェクトストレージで 45 日後に階層化データが _Standard_class から _Standard-IA_class に移動されたことを示しています。
+
++
+「 * このストレージクラスにデータを保持する」を選択した場合、データは _Standard_storage クラスに残り、ルールは適用されません。 link:reference-aws-support.html["「サポートされているストレージクラス」を参照"^]。
+
++
+image:screenshot_tiering_lifecycle_selection_aws.png["特定の日数が経過したあとにデータを移動する別のストレージクラスの選択方法を示すスクリーンショット。"]
+
++
+ライフサイクルルールは、選択したバケット内のすべてのオブジェクトに適用されます。
+
+.. * クレデンシャル * ：必要な S3 権限を持つ IAM ユーザのアクセスキー ID とシークレットキーを入力し、 * Continue * をクリックします。
++
+IAM ユーザは、「 * S3 Bucket * 」ページで選択または作成したバケットと同じ AWS アカウントに属している必要があります。
+
+.. * クラスタネットワーク * ： ONTAP がオブジェクトストレージへの接続に使用する IPspace を選択し、「 * 続行」をクリックします。
++
+正しい IPspace を選択すると、 Cloud Tiering を使用して、 ONTAP からクラウドプロバイダのオブジェクトストレージへの接続をセットアップできます。
+
+
+
+. _Tier Volume_page で、階層化を設定するボリュームを選択し、階層化ポリシーページを起動します。
++
+** すべてのボリュームを選択するには、タイトル行（image:button_backup_all_volumes.png[""]）をクリックし、 * ボリュームの設定 * をクリックします。
+** 複数のボリュームを選択するには、各ボリュームのボックス（image:button_backup_1_volume.png[""]）をクリックし、 * ボリュームの設定 * をクリックします。
+** 単一のボリュームを選択するには、行（または）をクリックします image:screenshot_edit_icon.gif["鉛筆アイコンを編集します"] アイコン）をクリックします。
++
+image:screenshot_tiering_modify_volumes.gif["単一のボリューム、複数のボリューム、またはすべてのボリュームを選択する方法、および選択したボリュームを変更するボタンを示すスクリーンショット」。"]
+
+
+
+. _Tiering Policy_Dialog で、階層化ポリシーを選択し、必要に応じて選択したボリュームのクーリング日数を調整して、 * 適用 * をクリックします。
++
+link:concept-cloud-tiering.html#volume-tiering-policies["ボリューム階層化ポリシーとクーリング期間の詳細を確認できます"]。
+
++
+image:screenshot_tiering_policy_settings.png["設定可能な階層化ポリシーの設定を示すスクリーンショット。"]
+
+
+
+これで、クラスタのボリュームから S3 オブジェクトストレージへのデータ階層化が設定されました。
+
+link:task-licensing-cloud-tiering.html["Cloud Tiering サービスに登録してください"]。
+
+また、クラスタを追加したり、クラスタ上のアクティブなデータと非アクティブなデータに関する情報を確認したりすることもできます。詳細については、を参照してください link:task-managing-tiering.html["クラスタからのデータ階層化の管理"]。
