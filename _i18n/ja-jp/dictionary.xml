@@ -173,10 +173,8 @@
   <block id="de34abb57e3fabd81532295568286b3d" category="section-title">FabricPool ライセンスは Cloud Tiering BYOL ライセンスに置き換えられています。</block>
   <block id="2817937e51c403b4b9929eaa298b82dd" category="paragraph">Cloud Tiering サービスを使用した、 Cloud Manager でサポートされる階層化構成に、新しい * Cloud Tiering * ライセンスが追加されました。複数のオンプレミス ONTAP クラスタにわたって使用できるフローティングライセンスです。過去に使用したことのある * FabricPool * ライセンスは、 Cloud Manager でサポートされていない構成にのみ保持されます。</block>
   <block id="54b8200ba1ce85a7ad931e091de0ed98" category="inline-link-macro">新しい Cloud Tiering ライセンスの詳細については、こちらをご覧ください</block>
-  <block id="1cc003bf9535f4d4db1ce37bc91d0a69" category="paragraph"><block ref="1750a2c743b8ae4d634a4b757de339a1" category="inline-link-macro-rx"></block>。</block>
   <block id="e7fccc6a6a9e8c8bcd302d9d7daefd1f" category="section-title">オンプレミスの ONTAP クラスタから S3 互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します。</block>
   <block id="59e10c49329cd1a0a55e4a0d27f6a584" category="inline-link-macro">S3 互換オブジェクトストレージへのデータの階層化方法を参照してください</block>
-  <block id="54912b214873c0fa9478003e6cd9f349" category="paragraph">Simple Storage Service （ S3 ）プロトコルを使用する任意の Object Storage サービスにアクセス頻度の低いデータを階層化できるようになりました。 <block ref="30fc64e394cf9c8a987acbf0c1fe8b99" category="inline-link-macro-rx"></block>。</block>
   <block id="916678dfdf53de83f6afdf8fca563fb3" category="section-title">2021 年 7 月 7 日</block>
   <block id="e5e19e9abc2fc2780cfda120acc4f7d0" category="section-title">Connector は、データを Azure BLOB ストレージに階層化するときにオンプレミスで実行できます。</block>
   <block id="def40345e2d3c9101a49141b1956c58d" category="paragraph">Azure VNet にインストールされたコネクタを使用する必要はなくなりました。Azure BLOB ストレージにデータを階層化する場合は、オンプレミスのホストで Connector を実行できます。</block>
@@ -196,7 +194,6 @@
   <block id="36ce0e84f37feb90fb719b27375ae5e7" category="paragraph">ONTAP システムから階層化するボリュームを選択するときに、 [Tier Volumes] ページに [*All *VOLUMES ] チェックボックスが表示され、すべてのボリュームに同じポリシーを簡単に適用できるようになりました。 <block ref="fe9c671df76431123a5e8d8776c7cef2" category="inline-link-macro-rx"></block>。</block>
   <block id="493c9069f29fa48faaa688db1fa4661e" category="section-title">「冷却」日数を 183 日まで設定できるようになりました。</block>
   <block id="2296f192167be3972e69fc3d386a3e66" category="paragraph">ONTAP 9.8 以降を使用している場合、ボリューム内のデータを非アクティブのままオブジェクトストレージに移動する期間を決定する「クーリング期間」を変更する必要がある場合は、最大 183 日（ 63 日以内）まで指定できるようになりました。</block>
-  <block id="1758589feb07955b2d0a7b0b09d739c8" category="section-title">2021 年 3 月 8 日</block>
   <block id="4f82c39e99959a1e5fa5a9a696bc2f05" category="section-title">Google Cloud Storage への階層化で、ライフサイクルルールを使用できるようになりました。</block>
   <block id="b4baef0a3a494382cb3865753733f031" category="paragraph">Google Cloud Storage に階層化する場合は、ライフサイクルルールを適用して、階層化されたデータを Standard ストレージクラスから 30 日後に低コストの Nearline 、 Coldline 、または Archive ストレージに移行することができます。</block>
   <block id="56e7e76078700fc13565626e04d55715" category="summary">Simple Storage Service （ S3 ）プロトコルを使用する任意のオブジェクトストレージサービスに、アクセス頻度の低いデータを階層化することによって、オンプレミスの ONTAP クラスタの空きスペースを確保します。</block>
@@ -528,7 +525,6 @@
   <block id="9c0f4dc542ed0a123aac48aa4bd827f5" category="list-text"><block ref="9c0f4dc542ed0a123aac48aa4bd827f5" category="inline-link-macro-rx"></block></block>
   <block id="73451059c29396c7b630ee6960c7e5ba" category="section-title">サポートされている S3 ストレージクラスはどれですか？</block>
   <block id="83985bfab8a456963026e9333e67b251" category="inline-link-macro">サポートされている S3 ストレージクラス</block>
-  <block id="8ff747b8f020f1bb34ee914a8da76594" category="paragraph">Cloud Tiering は、 _Standard_'_Standard-Infrequent Access'_1 Zone-IA_'_Intelligent Storage クラスへのデータ階層化をサポートしています。を参照してください <block ref="f693663c1e0f361f1f4405a9653a3c4b" category="inline-link-macro-rx"></block> 詳細：</block>
   <block id="0bb4b033070227409733db8bfee0da13" category="section-title">サポートされている Azure Blob アクセス階層はどれですか？</block>
   <block id="9325e105c2d24f4bd2d437adacc6f7b8" category="inline-link-macro">サポートされる Azure Blob アクセス階層</block>
   <block id="e81deb1da8f00fe65fad5b0c37afd3fc" category="paragraph">Cloud Tiering は、アクセス頻度の低いデータに対するホットアクセス階層へのデータ階層化をサポートします。を参照してください <block ref="db7ac7f0446977850e1dd33ce55fa427" category="inline-link-macro-rx"></block> 詳細：</block>
@@ -699,7 +695,6 @@
   <block id="7bd914491d17c534e3612cd97579060e" category="list-text">mailto ： ng-cloud-tiering@netapp.com ？ subject = ライセンス [ ライセンスを購入するために電子メールを送信 ] 。</block>
   <block id="666323488d4fa691054a8d6bff137cc3" category="list-text">Cloud Manager の右下にあるチャットアイコンをクリックして、ライセンスを申請してください。</block>
   <block id="6aa300e24ddf3ee5a99bbb1cf5bb4a72" category="inline-link">詳細については、こちらをご覧ください</block>
-  <block id="25853c167f6471960d304b880d96cf22" category="paragraph">必要に応じて、使用しない Cloud Volumes ONTAP の未割り当てのノードベースライセンスがある場合は、同じ金額と同じ有効期限で Cloud Tiering ライセンスに変換できます。<block ref="eba792cc4ea762abf667ddd327a7fe89" category="inline-link-rx"></block>。</block>
   <block id="3868e848af85900de1f54ff09666ee69" category="paragraph">Cloud Manager の Digital Wallet ページを使用して、 Cloud Tiering BYOL ライセンスを管理します。新しいライセンスを追加したり、既存のライセンスを更新したりできます。</block>
   <block id="52cae96a75c3f07b159891ff3d6a95c0" category="section-title">2021 年 8 月 21 日以降、 Cloud Tiering BYOL の新しいライセンス</block>
   <block id="85ae9bef317bd3c11475e84eb54944db" category="paragraph">Cloud Tiering サービスを使用した Cloud Manager 内でサポートされる階層化構成の新しい * Cloud Tiering * ライセンスが、 2021 年 8 月に導入されました。Cloud Manager は、現在、 Amazon S3 、 Azure Blob Storage 、 Google Cloud Storage 、 S3 互換オブジェクトストレージ、 StorageGRID などのクラウドストレージへの階層化をサポートしています。</block>
@@ -783,7 +778,6 @@
   <block id="ddc0d211eedc82ce253724f39188a145" category="doc">サポートされている S3 ストレージクラスとリージョン</block>
   <block id="b3c0a261b2734ca1d3179f5e85ff167f" category="paragraph">AWS へのデータ階層化を設定すると、 Cloud Tiering は、アクセス頻度の低いデータに _Standard_storage クラスを自動的に使用します。Cloud Tiering では、ライフサイクルルールを適用して、特定の日数が経過したデータを _Standard_storage クラスから別のストレージクラスに移行できます。次のストレージクラスから選択できます。</block>
   <block id="7a1255ccd32375deedb79fe52eed93f5" category="list-text">標準的なアクセス頻度は低い</block>
-  <block id="ce78797e88b3d33e9c2c584edfcd9130" category="list-text">1 ゾーン -IA</block>
   <block id="d5af3a9669300c1a58b6af2ac906df11" category="list-text">インテリジェントな階層化（ AWS が頻繁なアクセスとアクセス頻度の低いアクセスでアクセスパターンが変化したときに自動的に 2 つの階層間でデータを移動）</block>
   <block id="9cc96aa415acf4482c36fe27491f4449" category="paragraph">別のストレージクラスを選択しない場合、データは _Standard_storage クラスに残り、ルールは適用されません。</block>
   <block id="29c1f2d72e2b39ecafc4a98e9390eb20" category="paragraph">クラウド階層化ライフサイクルルールを設定する場合は、 AWS アカウントでバケットをセットアップするときにライフサイクルルールを設定しないでください。</block>
@@ -873,4 +867,14 @@
   <block id="ad203e818e0c9d7f42f1c260b33875f3" category="sidebar">クラウドに関する Web セミナー</block>
   <block id="4c7d5d7dfde4a7bd82b54348182043d3" category="sidebar">その他のリソース</block>
   <block id="cc81b1698333ba727fd5bde305c3cf08" category="sidebar">Cloud Central のユースケース</block>
+  <block id="ad806d4b803a5aa7358400786d14dec0" category="section-title">2022 年 4 月 4 日</block>
+  <block id="7c8a4291aea538c22d3b7597f39f6683" category="section-title">Amazon S3 Glacier Instant Retrieval ストレージクラスが使用可能になりました。</block>
+  <block id="073223fc83a8b7f1f274f1af1f635f2f" category="paragraph">Cloud Tiering をセットアップする際に、アクティブでないデータが特定の日数後に _Standard_storage クラスから _Glacier Instant Retrieve_に 移行するようにライフサイクルルールを設定できるようになりました。これにより、 AWS インフラのコストを削減できます。</block>
+  <block id="34a4923a0f84a1bc223389cfed6e2b62" category="paragraph"><block ref="3054f156a0693c67de0611c0445f676e" category="inline-link-rx"></block>。</block>
+  <block id="df94b79ab63138be1c03382ae20c338d" category="paragraph">Simple Storage Service （ S3 ）プロトコルを使用する任意の Object Storage サービスにアクセス頻度の低いデータを階層化できるようになりました。<block ref="26932bf166134e05b1ade0d7ecb1b6d8" category="inline-link-rx"></block>。</block>
+  <block id="dbbd746e2d2c019dcb0c3c40b74f4f75" category="section-title">2021 年 3 月 8 日</block>
+  <block id="5599b78f1c4021d635a48942fd659db7" category="paragraph">クラウド階層化では、 _Standard_,_Standard-Infrequent Access_,_one Zone - Infrequent Access_, _Intelligent Tiering _ 、および _Glacier Instant Retrieval_storage の各クラスへのデータ階層化がサポートされています。を参照してください <block ref="f693663c1e0f361f1f4405a9653a3c4b" category="inline-link-macro-rx"></block> 詳細：</block>
+  <block id="72899f4178ab51a60b88e578be4f92f1" category="paragraph">必要に応じて、使用しない Cloud Volumes ONTAP の未割り当てのノードベースライセンスがある場合は、同じ金額と同じ有効期限で Cloud Tiering ライセンスに変換できます。<block ref="c110e5a4a66d7429a8ced7dc2264a8f5" category="inline-link-rx"></block>。</block>
+  <block id="e2b0c2a0a664cef2184b3d17808db4ce" category="list-text">1 回のアクセスではほとんど発生しません</block>
+  <block id="cb6793246bf8a1d9872b2f128304ed8c" category="list-text">Glacier のインスタント検索</block>
 </blocks>

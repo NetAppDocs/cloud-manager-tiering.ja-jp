@@ -17,6 +17,16 @@ Cloud Tiering の新機能をご確認ください。
 
 
 
+== 2022 年 4 月 4 日
+
+
+
+=== Amazon S3 Glacier Instant Retrieval ストレージクラスが使用可能になりました。
+
+Cloud Tiering をセットアップする際に、アクティブでないデータが特定の日数後に _Standard_storage クラスから _Glacier Instant Retrieve_に 移行するようにライフサイクルルールを設定できるようになりました。これにより、 AWS インフラのコストを削減できます。
+
+
+
 == 2021 年 9 月 2 日
 
 
@@ -25,13 +35,13 @@ Cloud Tiering の新機能をご確認ください。
 
 Cloud Tiering サービスを使用した、 Cloud Manager でサポートされる階層化構成に、新しい * Cloud Tiering * ライセンスが追加されました。複数のオンプレミス ONTAP クラスタにわたって使用できるフローティングライセンスです。過去に使用したことのある * FabricPool * ライセンスは、 Cloud Manager でサポートされていない構成にのみ保持されます。
 
-link:task-licensing-cloud-tiering.html#use-a-cloud-tiering-byol-license["新しい Cloud Tiering ライセンスの詳細については、こちらをご覧ください"]。
+https://docs.netapp.com/us-en/cloud-manager-tiering/task-licensing-cloud-tiering.html#use-a-cloud-tiering-byol-license["新しい Cloud Tiering ライセンスの詳細については、こちらをご覧ください"]。
 
 
 
 === オンプレミスの ONTAP クラスタから S3 互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します。
 
-Simple Storage Service （ S3 ）プロトコルを使用する任意の Object Storage サービスにアクセス頻度の低いデータを階層化できるようになりました。 link:task-tiering-onprem-s3-compat.html["S3 互換オブジェクトストレージへのデータの階層化方法を参照してください"]。
+Simple Storage Service （ S3 ）プロトコルを使用する任意の Object Storage サービスにアクセス頻度の低いデータを階層化できるようになりました。 https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-s3-compat.html["S3 互換オブジェクトストレージへのデータの階層化方法を参照してください"]。
 
 
 

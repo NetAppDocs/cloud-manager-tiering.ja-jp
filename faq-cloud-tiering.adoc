@@ -90,7 +90,7 @@ Amazon S3 、 Azure BLOB ストレージ、 Google Cloud Storage 、 NetApp Stor
 
 === サポートされている S3 ストレージクラスはどれですか？
 
-Cloud Tiering は、 _Standard_'_Standard-Infrequent Access'_1 Zone-IA_'_Intelligent Storage クラスへのデータ階層化をサポートしています。を参照してください link:reference-aws-support.html["サポートされている S3 ストレージクラス"] 詳細：
+クラウド階層化では、 _Standard_,_Standard-Infrequent Access_,_one Zone - Infrequent Access_, _Intelligent Tiering _ 、および _Glacier Instant Retrieval_storage の各クラスへのデータ階層化がサポートされています。を参照してください link:reference-aws-support.html["サポートされている S3 ストレージクラス"] 詳細：
 
 
 
