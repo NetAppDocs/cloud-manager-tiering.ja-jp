@@ -36,7 +36,7 @@ Cloud Tiering は、自動化、監視、レポート、共通の管理インタ
 Cloud Tiering が提供する価値の詳細については、 https://cloud.netapp.com/cloud-tiering["NetApp Cloud Central の Cloud Tiering ページを確認してください"^]。
 
 
-TIP: Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用です。 https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering.html["Cloud Volumes ONTAP の階層化はで設定します Cloud Manager の作業環境"^]。
+TIP: Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用です。 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-tiering.html["Cloud Volumes ONTAP の階層化はで設定します Cloud Manager の作業環境"^]。
 
 
 
@@ -186,7 +186,7 @@ NOTE: 再加熱されたデータは、スペースがある場合にのみパ�
 +
 データはすぐに階層化されるため、 SnapMirror はパフォーマンス階層ではなくクラウド階層からデータを読み取ります。そのため、 SnapMirror 処理が遅くなります。別の階層化ポリシーを使用している場合でも、 SnapMirror 処理の速度が遅くなる可能性があります。
 
-* Cloud Backup も、階層化ポリシーが設定されたボリュームに同様の影響を受けます。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-backup-to-cloud.html#fabricpool-tiering-policy-considerations["階層化ポリシーに関する考慮事項については、「 Cloud Backup の使用」を参照"^]。
+* Cloud Backup も、階層化ポリシーが設定されたボリュームに同様の影響を受けます。 https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#fabricpool-tiering-policy-considerations["階層化ポリシーに関する考慮事項については、「 Cloud Backup の使用」を参照"^]。
 
 
 --

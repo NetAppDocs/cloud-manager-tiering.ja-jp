@@ -391,7 +391,6 @@
   <block id="87ade72d5bce2aa059ec00c3d0267dcd" category="inline-link">NetApp Cloud Central の Cloud Tiering ページを確認してください</block>
   <block id="4074a4b2af431bb41b7d6a27a4a0fa8c" category="paragraph">Cloud Tiering が提供する価値の詳細については、<block ref="2b48faa4b3be6c213b2f92c388d8c1e9" category="inline-link-rx"></block>。</block>
   <block id="0f2fe86a510d6ffda7900a01b49c88f9" category="inline-link">Cloud Volumes ONTAP の階層化はで設定します Cloud Manager の作業環境</block>
-  <block id="1b0d6afe10ff6103c540628fe566d56e" category="admonition">Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用です。<block ref="0458d8900c90ee2f69cdcbac050a32c7" category="inline-link-rx"></block>。</block>
   <block id="002fca37a5e7d8eb724e874566419716" category="section-title">サポートされているオブジェクトストレージプロバイダ</block>
   <block id="9c66b95e4870e124c7162efbed0394e2" category="paragraph">オンプレミスの ONTAP クラスタから次のオブジェクトストレージプロバイダにアクセス頻度の低いデータを階層化できます。</block>
   <block id="270fcb785810d0206945029bb05f4e97" category="list-text">Amazon S3</block>
@@ -470,7 +469,6 @@
   <block id="87f877198480bd1c4489bc28a2335d55" category="list-text">データ保護関係のソースボリュームに「すべて」の階層化ポリシーを割り当てる前に、 SnapMirror 転送の影響を考慮してください。</block>
   <block id="20f9c7a7f1c4f74661fc0727854e46f4" category="paragraph">データはすぐに階層化されるため、 SnapMirror はパフォーマンス階層ではなくクラウド階層からデータを読み取ります。そのため、 SnapMirror 処理が遅くなります。別の階層化ポリシーを使用している場合でも、 SnapMirror 処理の速度が遅くなる可能性があります。</block>
   <block id="044a101dba61ea5e747aaeee35c6de2d" category="inline-link">階層化ポリシーに関する考慮事項については、「 Cloud Backup の使用」を参照</block>
-  <block id="4655136ec90c791c1d4455d1f03b8b50" category="list-text">Cloud Backup も、階層化ポリシーが設定されたボリュームに同様の影響を受けます。<block ref="3e7c39ecdf4f4bd0e6ee707ffab5d001" category="inline-link-rx"></block>。</block>
   <block id="7f7b8ca64210913a358ddc737b47e16a" category="list-text">すべての DP ユーザデータ（バックアップ）</block>
   <block id="3f0d398a1e8248f6bc2bbb8471906f11" category="list-text">データ保護ボリューム上のすべてのデータ（メタデータを除く）は、すぐにクラウド階層に移動されます。読み取られた場合、クラウド階層のコールドデータブロックはコールドのままで、パフォーマンス階層に書き戻されません（ ONTAP 9.4 以降）。</block>
   <block id="ed010271127f187e6f11d9a502b5d9d5" category="admonition">このポリシーは ONTAP 9.5 以前で使用できます。ONTAP 9.6 以降では、「すべて * 」の階層化ポリシーに置き換えられています。</block>
@@ -559,7 +557,6 @@
   <block id="f62dcb7386eaf506309de5160bd02c50" category="paragraph">権限に関連する質問を次に示します。</block>
   <block id="4522a1d4b0d9206d13528cf542a074b3" category="section-title">AWS で必要な権限</block>
   <block id="130be31a684effcc1ca233dec9da47e3" category="inline-link-macro">をクリックして S3 バケットを管理します</block>
-  <block id="c94fc62f6a223edaa23d5628fdf832c5" category="paragraph">権限が必要です <block ref="a668480a49e555d959e0009bc8bc5aed" category="inline-link-macro-rx"></block>。</block>
   <block id="0639b88e83c9fb75f608ce27a4447149" category="section-title">Azure で必要な権限</block>
   <block id="516e07b4e60ac0b13608986f125a4fba" category="paragraph">Cloud Manager に提供する必要がある権限以外で追加の権限は必要ありません。</block>
   <block id="fe3f9db90b5b9920406818b6f2f9b91e" category="section-title">Google Cloud Platform に必要な権限は何ですか。</block>
@@ -877,4 +874,7 @@
   <block id="72899f4178ab51a60b88e578be4f92f1" category="paragraph">必要に応じて、使用しない Cloud Volumes ONTAP の未割り当てのノードベースライセンスがある場合は、同じ金額と同じ有効期限で Cloud Tiering ライセンスに変換できます。<block ref="c110e5a4a66d7429a8ced7dc2264a8f5" category="inline-link-rx"></block>。</block>
   <block id="e2b0c2a0a664cef2184b3d17808db4ce" category="list-text">1 回のアクセスではほとんど発生しません</block>
   <block id="cb6793246bf8a1d9872b2f128304ed8c" category="list-text">Glacier のインスタント検索</block>
+  <block id="ce34acaac9ca080c6cf882736711598e" category="admonition">Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用です。<block ref="9af043ec07eda2b8761144420bc7ff5f" category="inline-link-rx"></block>。</block>
+  <block id="1c8b696d9c11af6b6bfbc6c0a7e4a61f" category="list-text">Cloud Backup も、階層化ポリシーが設定されたボリュームに同様の影響を受けます。<block ref="4e28c1a1682c24a0aaf57d23ca62ce4e" category="inline-link-rx"></block>。</block>
+  <block id="7399e8f6e7163289ee0ecfe3413b3c7a" category="paragraph">権限が必要です <block ref="169af6556d92f8f176136d72d4ee3858" category="inline-link-macro-rx"></block>。</block>
 </blocks>

@@ -171,7 +171,7 @@ ONTAP は、オブジェクトストレージとの間でデータの読み取�
 
 === AWS で必要な権限
 
-権限が必要です link:task-tiering-onprem-aws#preparing-amazon-s3["をクリックして S3 バケットを管理します"]。
+権限が必要です link:task-tiering-onprem-aws.html#preparing-amazon-s3["をクリックして S3 バケットを管理します"]。
 
 
 
