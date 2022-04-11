@@ -170,31 +170,23 @@
   <block id="931c42fa613d6d1d1197c547b4e6a7e3" category="summary">Cloud Tiering の新機能をご確認ください。</block>
   <block id="ad9a656fa18a582d87590e28dce5af00" category="doc">Cloud Tiering の新機能</block>
   <block id="d798cbf5a08fbeb9fdd3652e5b00bb4c" category="section-title">2021 年 9 月 2 日</block>
-  <block id="de34abb57e3fabd81532295568286b3d" category="section-title">FabricPool ライセンスは Cloud Tiering BYOL ライセンスに置き換えられています。</block>
   <block id="2817937e51c403b4b9929eaa298b82dd" category="paragraph">Cloud Tiering サービスを使用した、 Cloud Manager でサポートされる階層化構成に、新しい * Cloud Tiering * ライセンスが追加されました。複数のオンプレミス ONTAP クラスタにわたって使用できるフローティングライセンスです。過去に使用したことのある * FabricPool * ライセンスは、 Cloud Manager でサポートされていない構成にのみ保持されます。</block>
   <block id="54b8200ba1ce85a7ad931e091de0ed98" category="inline-link-macro">新しい Cloud Tiering ライセンスの詳細については、こちらをご覧ください</block>
-  <block id="e7fccc6a6a9e8c8bcd302d9d7daefd1f" category="section-title">オンプレミスの ONTAP クラスタから S3 互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します。</block>
   <block id="59e10c49329cd1a0a55e4a0d27f6a584" category="inline-link-macro">S3 互換オブジェクトストレージへのデータの階層化方法を参照してください</block>
   <block id="916678dfdf53de83f6afdf8fca563fb3" category="section-title">2021 年 7 月 7 日</block>
-  <block id="e5e19e9abc2fc2780cfda120acc4f7d0" category="section-title">Connector は、データを Azure BLOB ストレージに階層化するときにオンプレミスで実行できます。</block>
   <block id="def40345e2d3c9101a49141b1956c58d" category="paragraph">Azure VNet にインストールされたコネクタを使用する必要はなくなりました。Azure BLOB ストレージにデータを階層化する場合は、オンプレミスのホストで Connector を実行できます。</block>
   <block id="945fb8f32f58d1cc36cb9f1e9e4c6fe5" category="section-title">2021 年 6 月 7 日</block>
-  <block id="379376a340ce5a2f52aae2612118a1bd" category="section-title">特定のクラウドプロバイダのストレージで新しい階層化クラスを使用できるようになりました。</block>
   <block id="277a1d3dc69ddcb600b5564bbfee2f99" category="paragraph">以前のリリースでは、 Amazon S3 または Google Cloud オブジェクトストレージを使用している場合、 30 日後に階層化データを Standard ストレージクラスから別のストレージクラスに移行できました。このリリースには、次の新機能が追加されてい</block>
   <block id="92a8cc3e0000b5a588f5e5a545d580b8" category="list-text">階層化データを対費用効果の高い階層に移動する日数を選択できます。これをデータの「ライフサイクル管理」と呼びます。</block>
   <block id="e7e39728235a606f9321e32048703018" category="list-text">Azure Blob で _Cool _ アクセス階層がサポートされるようになりました。</block>
   <block id="b2c1efe1106d7a3c0771b064bea9957c" category="list-text">Google Cloud Storage では、階層化されたデータを複数のストレージ階層に長期的に移動できます。たとえば、階層化されたデータを 45 日後に _Standard_class から _Nearline_class に移動し、その後 75 日後に _Coldline_class に移動してから、 270 日後に _Archive_class に移動できます。</block>
-  <block id="d3a691a2ed6d63a991a7682ab144013f" category="section-title">これで、クラウド階層からパフォーマンス階層にデータをプロアクティブに戻すことができます。</block>
   <block id="c2c0bee6af3a5a60056d41dcc371d786" category="paragraph">この機能は、ボリュームでの階層化の使用を停止する場合や、すべてのユーザデータを高パフォーマンス階層に保持しながら Snapshot コピーをクラウド階層に保持する場合に便利です。この機能は、 ONTAP 9.8 以降を使用している場合に使用できます。</block>
   <block id="296729a9ae6cd989b611bbaa8f279cba" category="inline-link-macro">データを高パフォーマンス階層に戻します</block>
   <block id="ef010ff21ef40a36a12794034bd76e1b" category="paragraph">方法を参照してください <block ref="81dc96fdd3bce727e4737236967f1536" category="inline-link-macro-rx"></block>。</block>
   <block id="824b76af9549cb14fd2443aa485afb15" category="section-title">2021 年 5 月 2 日</block>
-  <block id="5de9b4ed62b2e6832897a1f7b7d93636" category="section-title">これで、階層化ポリシーを適用する際にすべてのボリュームを選択できるようになりました。</block>
   <block id="bf6525c86100838072a02751028c3547" category="inline-link-macro">クラスタ内のすべてのボリュームの選択方法を参照してください</block>
   <block id="36ce0e84f37feb90fb719b27375ae5e7" category="paragraph">ONTAP システムから階層化するボリュームを選択するときに、 [Tier Volumes] ページに [*All *VOLUMES ] チェックボックスが表示され、すべてのボリュームに同じポリシーを簡単に適用できるようになりました。 <block ref="fe9c671df76431123a5e8d8776c7cef2" category="inline-link-macro-rx"></block>。</block>
-  <block id="493c9069f29fa48faaa688db1fa4661e" category="section-title">「冷却」日数を 183 日まで設定できるようになりました。</block>
   <block id="2296f192167be3972e69fc3d386a3e66" category="paragraph">ONTAP 9.8 以降を使用している場合、ボリューム内のデータを非アクティブのままオブジェクトストレージに移動する期間を決定する「クーリング期間」を変更する必要がある場合は、最大 183 日（ 63 日以内）まで指定できるようになりました。</block>
-  <block id="4f82c39e99959a1e5fa5a9a696bc2f05" category="section-title">Google Cloud Storage への階層化で、ライフサイクルルールを使用できるようになりました。</block>
   <block id="b4baef0a3a494382cb3865753733f031" category="paragraph">Google Cloud Storage に階層化する場合は、ライフサイクルルールを適用して、階層化されたデータを Standard ストレージクラスから 30 日後に低コストの Nearline 、 Coldline 、または Archive ストレージに移行することができます。</block>
   <block id="56e7e76078700fc13565626e04d55715" category="summary">Simple Storage Service （ S3 ）プロトコルを使用する任意のオブジェクトストレージサービスに、アクセス頻度の低いデータを階層化することによって、オンプレミスの ONTAP クラスタの空きスペースを確保します。</block>
   <block id="6fcd419d9b16c5368ab2877625e80567" category="doc">オンプレミスの ONTAP クラスタから S3 オブジェクトストレージへデータを階層化する</block>
@@ -378,8 +370,6 @@
   <block id="6b5920220b135ba1ff95cfb5b149f138" category="summary">ネットアップの Cloud Tiering Service は、アクセス頻度の低いデータをオンプレミスの ONTAP クラスタからオブジェクトストレージに自動的に階層化することで、データセンターをクラウドへと拡張します。これにより、クラスタの貴重なスペースが解放され、アプリケーションレイヤに変更を加えることなく、より多くのワークロードに対応できるようになります。Cloud Tiering を使用すると、データセンターのコストを削減し、 CAPEX モデルから OPEX モデルに切り替えることができます。</block>
   <block id="36afa058c74d288178950c27927bdb38" category="doc">Cloud Tiering の詳細をご確認ください</block>
   <block id="647439c1467c8118206ec0bd264e5f44" category="paragraph">Cloud Tiering サービスには、 FabricPool の機能が活用されています。FabricPool はネットアップデータファブリックのテクノロジで、低コストのオブジェクトストレージへデータを自動で階層化することができます。アクティブな（ホットな）データはローカル階層（オンプレミスの ONTAP アグリゲート）に残り、アクセス頻度の低い（コールド）データはクラウド階層に移動されます。移動されると、 ONTAP のデータ効率は維持されます。</block>
-  <block id="011e4b5a7fb442bf2848da9c53ef3cd0" category="inline-link">FabricPool を使用するための要件</block>
-  <block id="14e790da71b49de4665d3ddb7594a860" category="paragraph">* 注： ONTAP 9.8 以降では、高性能 SSD に加え、 HDD で構成されたアグリゲートからデータを階層化できます。それよりも前のリリースでは、オール SSD アグリゲートを使用する AFF システムまたは FAS システムからのみデータを階層化できます。を参照してください<block ref="e0a79ddede56a90935247b71be1bce6a" category="inline-link-rx"></block> を参照してください。</block>
   <block id="98f770b0af18ca763421bac22b4b6805" category="section-title">の機能</block>
   <block id="c6a7db5c25117c443a476e127b47fb7e" category="paragraph">Cloud Tiering は、自動化、監視、レポート、共通の管理インターフェイスを提供します。</block>
   <block id="e06e7e77771ffb8d53ca2e5570304aa3" category="list-text">自動化により、データのセットアップと管理が容易になります オンプレミスの ONTAP クラスタからクラウドへの階層化</block>
@@ -392,7 +382,6 @@
   <block id="4074a4b2af431bb41b7d6a27a4a0fa8c" category="paragraph">Cloud Tiering が提供する価値の詳細については、<block ref="2b48faa4b3be6c213b2f92c388d8c1e9" category="inline-link-rx"></block>。</block>
   <block id="0f2fe86a510d6ffda7900a01b49c88f9" category="inline-link">Cloud Volumes ONTAP の階層化はで設定します Cloud Manager の作業環境</block>
   <block id="002fca37a5e7d8eb724e874566419716" category="section-title">サポートされているオブジェクトストレージプロバイダ</block>
-  <block id="9c66b95e4870e124c7162efbed0394e2" category="paragraph">オンプレミスの ONTAP クラスタから次のオブジェクトストレージプロバイダにアクセス頻度の低いデータを階層化できます。</block>
   <block id="270fcb785810d0206945029bb05f4e97" category="list-text">Amazon S3</block>
   <block id="6a51ed7bcacdfb13f78abc1e0f69c201" category="list-text">Microsoft Azure Blob</block>
   <block id="833c2c211a541e50ad94433664e4b5c1" category="list-text">Google クラウドストレージ</block>
@@ -426,7 +415,6 @@
   <block id="3f08769be064240fa25ba129ac43d9a4" category="paragraph">たとえば、 10TB のライセンスがある場合、 10TB を超える容量はすべて従量課金制サブスクリプションで課金されます。</block>
   <block id="ad05b2f231e5f48f63b30a2913fa7fef" category="paragraph">無償トライアル期間中、または Cloud Tiering BYOL ライセンスを超えていない場合、従量課金制サブスクリプションからは課金されません。</block>
   <block id="09c7ee4be0db4e9240de27e931212553" category="inline-link-macro">従量課金制サブスクリプションの設定方法について説明します</block>
-  <block id="ae35798c86544bd373763be071197bcd" category="paragraph"><block ref="695e49e1d7c93e1531d22946f3605e9b" category="inline-link-macro-rx"></block>。</block>
   <block id="fce5aebaf837d23e27b8a9d6a54a6467" category="section-title">お客様所有のライセンスを使用</block>
   <block id="df3841822547641e1f0490414fb8f19e" category="paragraph">ネットアップから Cloud Tiering * ライセンスを購入して、お客様所有のライセンスを有効にしてください。2 カ月、 12 カ月、 24 カ月、 36 カ月の期間ライセンスを購入し、任意の階層化容量を指定できます。BYOL クラウド階層化ライセンスは、複数のオンプレミス ONTAP クラスタで使用できるフローティングライセンスです。クラウド階層化ライセンスで定義した合計階層化容量は、すべてのオンプレミスクラスタで使用できます。</block>
   <block id="7b31eba1fa6d2aa1d3bf4ddb10d4b302" category="inline-link-macro">Cloud Tiering BYOL ライセンスの使用方法を参照してください</block>
@@ -865,7 +853,6 @@
   <block id="4c7d5d7dfde4a7bd82b54348182043d3" category="sidebar">その他のリソース</block>
   <block id="cc81b1698333ba727fd5bde305c3cf08" category="sidebar">Cloud Central のユースケース</block>
   <block id="ad806d4b803a5aa7358400786d14dec0" category="section-title">2022 年 4 月 4 日</block>
-  <block id="7c8a4291aea538c22d3b7597f39f6683" category="section-title">Amazon S3 Glacier Instant Retrieval ストレージクラスが使用可能になりました。</block>
   <block id="073223fc83a8b7f1f274f1af1f635f2f" category="paragraph">Cloud Tiering をセットアップする際に、アクティブでないデータが特定の日数後に _Standard_storage クラスから _Glacier Instant Retrieve_に 移行するようにライフサイクルルールを設定できるようになりました。これにより、 AWS インフラのコストを削減できます。</block>
   <block id="34a4923a0f84a1bc223389cfed6e2b62" category="paragraph"><block ref="3054f156a0693c67de0611c0445f676e" category="inline-link-rx"></block>。</block>
   <block id="df94b79ab63138be1c03382ae20c338d" category="paragraph">Simple Storage Service （ S3 ）プロトコルを使用する任意の Object Storage サービスにアクセス頻度の低いデータを階層化できるようになりました。<block ref="26932bf166134e05b1ade0d7ecb1b6d8" category="inline-link-rx"></block>。</block>
@@ -877,4 +864,22 @@
   <block id="ce34acaac9ca080c6cf882736711598e" category="admonition">Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用です。<block ref="9af043ec07eda2b8761144420bc7ff5f" category="inline-link-rx"></block>。</block>
   <block id="1c8b696d9c11af6b6bfbc6c0a7e4a61f" category="list-text">Cloud Backup も、階層化ポリシーが設定されたボリュームに同様の影響を受けます。<block ref="4e28c1a1682c24a0aaf57d23ca62ce4e" category="inline-link-rx"></block>。</block>
   <block id="7399e8f6e7163289ee0ecfe3413b3c7a" category="paragraph">権限が必要です <block ref="169af6556d92f8f176136d72d4ee3858" category="inline-link-macro-rx"></block>。</block>
+  <block id="6cb8333618f00b139da255e7f5a82ea0" category="section-title">Amazon S3 Glacier Instant Retrieval ストレージクラスが使用可能になりました</block>
+  <block id="199090bb5d58df554b18a5cb68acb0b7" category="section-title">Cloud Tiering は、 ONTAP Select システムで完全に認定されています</block>
+  <block id="a74220a8acc78d1041352afb305af18f" category="paragraph">AFF システムと FAS システムのデータを階層化するだけでなく、 ONTAP Select システムからクラウドストレージにもアクセス頻度の低いデータを階層化できるようになりました。</block>
+  <block id="99c3c55ceb085b94e53d8b7984863037" category="section-title">FabricPool ライセンスは Cloud Tiering BYOL ライセンスに置き換えられています</block>
+  <block id="24263383a842093a8c2b6b9b8a88989d" category="section-title">オンプレミスの ONTAP クラスタから S3 互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します</block>
+  <block id="154176674c0672732a91f2bd7ca5d8e0" category="section-title">Connector は、データを Azure BLOB ストレージに階層化するときにオンプレミスで実行できます</block>
+  <block id="c4f829b7ae242ef2fe076d1c69689d01" category="section-title">特定のクラウドプロバイダのストレージで新しい階層化クラスを使用できるようになりました</block>
+  <block id="84cada6f6939410de8fc42b2cea10895" category="section-title">これで、クラウド階層からパフォーマンス階層にデータをプロアクティブに戻すことができます</block>
+  <block id="011ff5422aa046bd5cf08306e8b04fde" category="section-title">これで、階層化ポリシーを適用する際にすべてのボリュームを選択できるようになりました</block>
+  <block id="f268cb0b89ceae31cbeb9f1cf4669fd0" category="section-title">「冷却」日数を 183 日まで設定できるようになりました</block>
+  <block id="5a294035d7c08dc10d36a9f693e9bdb7" category="section-title">Google Cloud Storage への階層化で、ライフサイクルルールを使用できるようになりました</block>
+  <block id="7beb276ec918c2d8eb132df5ed6fe576" category="section-title">どのような種類の ONTAP システムがサポートされていますか。</block>
+  <block id="9b07339421cb8fc38c122eac748e7d25" category="paragraph">クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。</block>
+  <block id="ec0515a8a06c1c0cf10efc6cbb1bfab9" category="inline-link">FabricPool を使用する際の考慮事項と要件</block>
+  <block id="2e1c93e13afa4226049aaf573620580e" category="paragraph">従来、オール SSD アグリゲートを使用する AFF および FAS システムでサポートされていた ONTAP 9.8 以降では、高性能の SSD に加え、 HDD で構成されるアグリゲートからデータを階層化できます。を参照してください<block ref="6b92341e29e5578d52c0690ebbf4bdb7" category="inline-link-rx"></block> を参照してください。</block>
+  <block id="ba7f44ea95b8ea6bdfe58a881b0dbc4d" category="admonition">クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。</block>
+  <block id="403df42df80267a7b2bc0be8c3e6685d" category="paragraph">オンプレミスの ONTAP システムから次のオブジェクトストレージプロバイダにアクセス頻度の低いデータを階層化できます。</block>
+  <block id="02778b04e5a037c1f79623dbe0edaeaa" category="paragraph"><block ref="ec35df1b46bc45bcde27ce05d4c1911f" category="inline-link-macro-rx"></block>。</block>
 </blocks>

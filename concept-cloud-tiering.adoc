@@ -17,7 +17,10 @@ summary: ネットアップの Cloud Tiering Service は、アクセス頻度の
 
 Cloud Tiering サービスには、 FabricPool の機能が活用されています。FabricPool はネットアップデータファブリックのテクノロジで、低コストのオブジェクトストレージへデータを自動で階層化することができます。アクティブな（ホットな）データはローカル階層（オンプレミスの ONTAP アグリゲート）に残り、アクセス頻度の低い（コールド）データはクラウド階層に移動されます。移動されると、 ONTAP のデータ効率は維持されます。
 
-* 注： ONTAP 9.8 以降では、高性能 SSD に加え、 HDD で構成されたアグリゲートからデータを階層化できます。それよりも前のリリースでは、オール SSD アグリゲートを使用する AFF システムまたは FAS システムからのみデータを階層化できます。を参照してください https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mgng-stor-tier-fp/GUID-8E421CC9-1DE1-492F-A84C-9EB1B0177807.html["FabricPool を使用するための要件"^] を参照してください。
+従来、オール SSD アグリゲートを使用する AFF および FAS システムでサポートされていた ONTAP 9.8 以降では、高性能の SSD に加え、 HDD で構成されるアグリゲートからデータを階層化できます。を参照してください https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html["FabricPool を使用する際の考慮事項と要件"^] を参照してください。
+
+
+TIP: クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。
 
 
 
@@ -42,7 +45,7 @@ TIP: Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専�
 
 == サポートされているオブジェクトストレージプロバイダ
 
-オンプレミスの ONTAP クラスタから次のオブジェクトストレージプロバイダにアクセス頻度の低いデータを階層化できます。
+オンプレミスの ONTAP システムから次のオブジェクトストレージプロバイダにアクセス頻度の低いデータを階層化できます。
 
 * Amazon S3
 * Microsoft Azure Blob
@@ -108,7 +111,7 @@ Cloud Tiering は、従量課金制モデルで使用量ベースのライセン
 
 無償トライアル期間中、または Cloud Tiering BYOL ライセンスを超えていない場合、従量課金制サブスクリプションからは課金されません。
 
-link:task-licensing-cloud-tiering.html#Use-a-cloud-tiering-paygo-subscription["従量課金制サブスクリプションの設定方法について説明します"]。
+link:task-licensing-cloud-tiering.html#use-a-cloud-tiering-paygo-subscription["従量課金制サブスクリプションの設定方法について説明します"]。
 
 
 
