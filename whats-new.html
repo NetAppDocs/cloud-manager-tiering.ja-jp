@@ -651,7 +651,7 @@
         </li>
         
         <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com/ja-jp/cloud/">Cloud Docs</a>
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
         </li>
         
 
@@ -689,7 +689,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-04 15:43:47 +0000">04/04/2022</time>
+    <time datetime="2022-04-11 12:57:55 +0000">04/11/2022</time>
     
   
 
@@ -707,9 +707,15 @@
 <h2 id="2022-年-4-月-4-日">2022 年 4 月 4 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="amazon-s3-glacier-instant-retrieval-ストレージクラスが使用可能になりました">Amazon S3 Glacier Instant Retrieval ストレージクラスが使用可能になりました。</h3>
+<h3 id="amazon-s3-glacier-instant-retrieval-ストレージクラスが使用可能になりました">Amazon S3 Glacier Instant Retrieval ストレージクラスが使用可能になりました</h3>
 <div class="paragraph">
 <p>Cloud Tiering をセットアップする際に、アクティブでないデータが特定の日数後に _Standard_storage クラスから _Glacier Instant Retrieve_に 移行するようにライフサイクルルールを設定できるようになりました。これにより、 AWS インフラのコストを削減できます。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cloud-tiering-は-ontap-select-システムで完全に認定されています">Cloud Tiering は、 ONTAP Select システムで完全に認定されています</h3>
+<div class="paragraph">
+<p>AFF システムと FAS システムのデータを階層化するだけでなく、 ONTAP Select システムからクラウドストレージにもアクセス頻度の低いデータを階層化できるようになりました。</p>
 </div>
 </div>
 </div>
@@ -718,7 +724,7 @@
 <h2 id="2021-年-9-月-2-日">2021 年 9 月 2 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="fabricpool-ライセンスは-cloud-tiering-byol-ライセンスに置き換えられています">FabricPool ライセンスは Cloud Tiering BYOL ライセンスに置き換えられています。</h3>
+<h3 id="fabricpool-ライセンスは-cloud-tiering-byol-ライセンスに置き換えられています">FabricPool ライセンスは Cloud Tiering BYOL ライセンスに置き換えられています</h3>
 <div class="paragraph">
 <p>Cloud Tiering サービスを使用した、 Cloud Manager でサポートされる階層化構成に、新しい * Cloud Tiering * ライセンスが追加されました。複数のオンプレミス ONTAP クラスタにわたって使用できるフローティングライセンスです。過去に使用したことのある * FabricPool * ライセンスは、 Cloud Manager でサポートされていない構成にのみ保持されます。</p>
 </div>
@@ -727,7 +733,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="オンプレミスの-ontap-クラスタから-s3-互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します">オンプレミスの ONTAP クラスタから S3 互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します。</h3>
+<h3 id="オンプレミスの-ontap-クラスタから-s3-互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します">オンプレミスの ONTAP クラスタから S3 互換のオブジェクトストレージにアクセス頻度の低いデータを階層化します</h3>
 <div class="paragraph">
 <p>Simple Storage Service （ S3 ）プロトコルを使用する任意の Object Storage サービスにアクセス頻度の低いデータを階層化できるようになりました。 <a href="https://docs.netapp.com/us-en/cloud-manager-tiering/task-tiering-onprem-s3-compat.html">"S3 互換オブジェクトストレージへのデータの階層化方法を参照してください"</a>。</p>
 </div>
@@ -738,7 +744,7 @@
 <h2 id="2021-年-7-月-7-日">2021 年 7 月 7 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="connector-はデータを-azure-blob-ストレージに階層化するときにオンプレミスで実行できます">Connector は、データを Azure BLOB ストレージに階層化するときにオンプレミスで実行できます。</h3>
+<h3 id="connector-はデータを-azure-blob-ストレージに階層化するときにオンプレミスで実行できます">Connector は、データを Azure BLOB ストレージに階層化するときにオンプレミスで実行できます</h3>
 <div class="paragraph">
 <p>Azure VNet にインストールされたコネクタを使用する必要はなくなりました。Azure BLOB ストレージにデータを階層化する場合は、オンプレミスのホストで Connector を実行できます。</p>
 </div>
@@ -749,7 +755,7 @@
 <h2 id="2021-年-6-月-7-日">2021 年 6 月 7 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="特定のクラウドプロバイダのストレージで新しい階層化クラスを使用できるようになりました">特定のクラウドプロバイダのストレージで新しい階層化クラスを使用できるようになりました。</h3>
+<h3 id="特定のクラウドプロバイダのストレージで新しい階層化クラスを使用できるようになりました">特定のクラウドプロバイダのストレージで新しい階層化クラスを使用できるようになりました</h3>
 <div class="paragraph">
 <p>以前のリリースでは、 Amazon S3 または Google Cloud オブジェクトストレージを使用している場合、 30 日後に階層化データを Standard ストレージクラスから別のストレージクラスに移行できました。このリリースには、次の新機能が追加されてい</p>
 </div>
@@ -768,7 +774,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="これでクラウド階層からパフォーマンス階層にデータをプロアクティブに戻すことができます">これで、クラウド階層からパフォーマンス階層にデータをプロアクティブに戻すことができます。</h3>
+<h3 id="これでクラウド階層からパフォーマンス階層にデータをプロアクティブに戻すことができます">これで、クラウド階層からパフォーマンス階層にデータをプロアクティブに戻すことができます</h3>
 <div class="paragraph">
 <p>この機能は、ボリュームでの階層化の使用を停止する場合や、すべてのユーザデータを高パフォーマンス階層に保持しながら Snapshot コピーをクラウド階層に保持する場合に便利です。この機能は、 ONTAP 9.8 以降を使用している場合に使用できます。</p>
 </div>
@@ -782,13 +788,13 @@
 <h2 id="2021-年-5-月-2-日">2021 年 5 月 2 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="これで階層化ポリシーを適用する際にすべてのボリュームを選択できるようになりました">これで、階層化ポリシーを適用する際にすべてのボリュームを選択できるようになりました。</h3>
+<h3 id="これで階層化ポリシーを適用する際にすべてのボリュームを選択できるようになりました">これで、階層化ポリシーを適用する際にすべてのボリュームを選択できるようになりました</h3>
 <div class="paragraph">
 <p>ONTAP システムから階層化するボリュームを選択するときに、 [Tier Volumes] ページに [*All *VOLUMES ] チェックボックスが表示され、すべてのボリュームに同じポリシーを簡単に適用できるようになりました。 <a href="task-managing-tiering.html#tiering-data-from-additional-volumes">"クラスタ内のすべてのボリュームの選択方法を参照してください"</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="冷却日数を-183-日まで設定できるようになりました">「冷却」日数を 183 日まで設定できるようになりました。</h3>
+<h3 id="冷却日数を-183-日まで設定できるようになりました">「冷却」日数を 183 日まで設定できるようになりました</h3>
 <div class="paragraph">
 <p>ONTAP 9.8 以降を使用している場合、ボリューム内のデータを非アクティブのままオブジェクトストレージに移動する期間を決定する「クーリング期間」を変更する必要がある場合は、最大 183 日（ 63 日以内）まで指定できるようになりました。</p>
 </div>
@@ -799,7 +805,7 @@
 <h2 id="2021-年-3-月-8-日">2021 年 3 月 8 日</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="google-cloud-storage-への階層化でライフサイクルルールを使用できるようになりました">Google Cloud Storage への階層化で、ライフサイクルルールを使用できるようになりました。</h3>
+<h3 id="google-cloud-storage-への階層化でライフサイクルルールを使用できるようになりました">Google Cloud Storage への階層化で、ライフサイクルルールを使用できるようになりました</h3>
 <div class="paragraph">
 <p>Google Cloud Storage に階層化する場合は、ライフサイクルルールを適用して、階層化されたデータを Standard ストレージクラスから 30 日後に低コストの Nearline 、 Coldline 、または Archive ストレージに移行することができます。</p>
 </div>

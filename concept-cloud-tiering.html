@@ -651,7 +651,7 @@
         </li>
         
         <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com/ja-jp/cloud/">Cloud Docs</a>
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
         </li>
         
 
@@ -689,7 +689,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-05 14:23:21 +0000">04/05/2022</time>
+    <time datetime="2022-04-11 12:57:55 +0000">04/11/2022</time>
     
   
 
@@ -704,12 +704,20 @@
 <div class="paragraph">
 <p>Cloud Tiering サービスには、 FabricPool の機能が活用されています。FabricPool はネットアップデータファブリックのテクノロジで、低コストのオブジェクトストレージへデータを自動で階層化することができます。アクティブな（ホットな）データはローカル階層（オンプレミスの ONTAP アグリゲート）に残り、アクセス頻度の低い（コールド）データはクラウド階層に移動されます。移動されると、 ONTAP のデータ効率は維持されます。</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>注： ONTAP 9.8 以降では、高性能 SSD に加え、 HDD で構成されたアグリゲートからデータを階層化できます。それよりも前のリリースでは、オール SSD アグリゲートを使用する AFF システムまたは FAS システムからのみデータを階層化できます。を参照してください <a href="https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mgng-stor-tier-fp/GUID-8E421CC9-1DE1-492F-A84C-9EB1B0177807.html" target="_blank" rel="noopener">"FabricPool を使用するための要件"</a> を参照してください。</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>従来、オール SSD アグリゲートを使用する AFF および FAS システムでサポートされていた ONTAP 9.8 以降では、高性能の SSD に加え、 HDD で構成されるアグリゲートからデータを階層化できます。を参照してください <a href="https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html" target="_blank" rel="noopener">"FabricPool を使用する際の考慮事項と要件"</a> を参照してください。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-tiering/images/tip.svg" alt="ヒント">
+</td>
+<td class="content">
+クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -762,7 +770,7 @@ Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用で
 <h2 id="サポートされているオブジェクトストレージプロバイダ">サポートされているオブジェクトストレージプロバイダ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>オンプレミスの ONTAP クラスタから次のオブジェクトストレージプロバイダにアクセス頻度の低いデータを階層化できます。</p>
+<p>オンプレミスの ONTAP システムから次のオブジェクトストレージプロバイダにアクセス頻度の低いデータを階層化できます。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -880,7 +888,7 @@ StorageGRID または S3 互換のストレージに階層化されたデータ�
 <p>無償トライアル期間中、または Cloud Tiering BYOL ライセンスを超えていない場合、従量課金制サブスクリプションからは課金されません。</p>
 </div>
 <div class="paragraph">
-<p><a href="task-licensing-cloud-tiering.html#Use-a-cloud-tiering-paygo-subscription">"従量課金制サブスクリプションの設定方法について説明します"</a>。</p>
+<p><a href="task-licensing-cloud-tiering.html#use-a-cloud-tiering-paygo-subscription">"従量課金制サブスクリプションの設定方法について説明します"</a>。</p>
 </div>
 </div>
 <div class="sect2">
