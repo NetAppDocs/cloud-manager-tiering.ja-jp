@@ -6,6 +6,7 @@ summary: アクセス頻度の低いデータを StorageGRID に階層化する�
 ---
 = オンプレミスの ONTAP クラスタから StorageGRID へデータを階層化する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

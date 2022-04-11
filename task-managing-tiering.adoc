@@ -6,6 +6,7 @@ summary: オンプレミスの ONTAP クラスタからデータ階層化を設�
 ---
 = クラスタからのデータ階層化の管理
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,8 +5,52 @@ keywords: help, ticket, open support case, support, netapp support, technical su
 summary: ネットアップでは、 Cloud Manager をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事やコミュニティフォーラムなど、 24 時間 365 日利用可能な幅広いセルフサポートオプションをご用意しています。サポート登録には、 Web チケット処理によるリモートテクニカルサポートが含まれます。 
 ---
 = ヘルプを表示します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
-link:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/_include/get-help.adoc[""]
+ネットアップでは、 Cloud Manager とその クラウド サービス をさまざまな方法でサポートしています。ナレッジベース（ KB ）記事やコミュニティフォーラムなど、 24 時間 365 日利用可能な幅広いセルフサポートオプションをご用意しています。サポート登録には、 Web チケット処理によるリモートテクニカルサポートが含まれます。
+
+
+
+== セルフサポート
+
+次のオプションは、 1 日 24 時間、週 7 日間無料でご利用いただけます。
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services["ナレッジベース"^]
++
+Cloud Manager のナレッジベースで問題のトラブルシューティングに役立つ記事を検索してください。
+
+* http://community.netapp.com/["コミュニティ"^]
++
+Cloud Manager コミュニティに参加して、進行中のディスカッションに参加したり、新しいコミュニティを作成したりできます。
+
+* ドキュメント
++
+現在表示している Cloud Manager のドキュメント。
+
+* mailto ： ng-cloudmanager-feedback@netapp.com [ フィードバックメール ]
++
+お客様のご意見をお考えください。Cloud Manager の改善に役立つフィードバックを送信します。
+
+
+
+
+
+== ネットアップサポート
+
+上記のセルフサポートオプションに加え、サポートを有効にしたあとに問題が発生した場合は、ネットアップサポートエンジニアと協力して解決できます。
+
+.手順
+. Cloud Manager で、 * Help > Support * の順にクリックします。
+. テクニカルサポートで利用可能なオプションのいずれかを選択します。
++
+.. [ * お問い合わせ * ] をクリックして、ネットアップ・テクニカル・サポートの電話番号を検索してください。
+.. [ * 問題 を開く * ] をクリックし、いずれかのオプションを選択して、 [ * 送信 * ] をクリックします。
++
+ネットアップの担当者がケースを確認し、すぐに対応を開始します。
+
+
+
+

@@ -5,8 +5,50 @@ keywords: support registration, register for support, support, nss account, add 
 summary: ネットアップテクニカルサポートでサポートケースをオープンするには、事前に Cloud Manager にネットアップサポートサイトのアカウントを追加し、サポートに登録しておく必要があります。 
 ---
 = サポートに登録します
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
-link:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/_include/support-registration.adoc[""]
+ネットアップテクニカルサポートでサポートケースをオープンするには、事前に Cloud Manager にネットアップサポートサイトのアカウントを追加し、サポートに登録しておく必要があります。
+
+
+
+== NSS アカウントを追加します
+
+サポートダッシュボードを使用すると、すべてのネットアップサポートサイトのアカウントを 1 箇所から追加および管理できます。
+
+.手順
+. ネットアップサポートサイトのアカウントがない場合は、 https://register.netapp.com/register/start["1 名で登録します"^]。
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
++
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/media/screenshot-help-support.png["[ ヘルプ ] メニューのスクリーンショット。サポートは最初に表示されるオプションです"]
+
+. [*NSS Management] > [Add NSS Account*] をクリックします。
+. メッセージが表示されたら、 [* Continue （続行） ] をクリックして Microsoft ログインページにリダイレクトします。
++
+ネットアップは、サポートとライセンスに固有の認証サービスのアイデンティティプロバイダとして Microsoft Azure Active Directory を使用しています。
+
+. ログインページで、ネットアップサポートサイトの登録 E メールアドレスとパスワードを入力して認証プロセスを実行します。
++
+Cloud Manager で NSS アカウントを使用することができます。
+
++
+注：お客様レベルのアカウントである必要があります（ゲストや一時アカウントは使用できません）。
+
+
+
+
+
+== アカウントを登録してサポートを受けてください
+
+サポートの登録は、 Cloud Manager のサポートダッシュボードで実行できます。
+
+.手順
+. Cloud Manager コンソールの右上にあるヘルプアイコンをクリックし、 * Support * を選択します。
++
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/media/screenshot-help-support.png["[ ヘルプ ] メニューのスクリーンショット。サポートは最初に表示されるオプションです"]
+
+. [* リソース ] タブで、 [* サポートに登録 * ] をクリックします。
+. 登録する NSS 資格情報を選択し、 * 登録 * をクリックします。
+

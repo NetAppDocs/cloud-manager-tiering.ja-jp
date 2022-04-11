@@ -6,6 +6,7 @@ summary: 非アクティブなデータを Google Cloud Storage に階層化す�
 ---
 = オンプレミスの ONTAP クラスタから Google Cloud Storage へデータを階層化する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: Cloud Tiering の新機能をご確認ください。
 ---
 = Cloud Tiering の新機能
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 最初のクラスタから階層化をセットアップすると、 C
 ---
 = Cloud Tiering のライセンスをセットアップ
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

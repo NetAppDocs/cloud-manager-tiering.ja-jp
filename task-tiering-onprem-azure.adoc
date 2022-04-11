@@ -6,6 +6,7 @@ summary: 非アクティブなデータを Azure Blob Storage に階層化する
 ---
 = オンプレミスの ONTAP クラスタから Azure BLOB ストレージへデータを階層化する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

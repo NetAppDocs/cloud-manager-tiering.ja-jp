@@ -7,6 +7,7 @@ summary: Cloud Tiering を使用すると、オンプレミスの ONTAP クラ�
 ---
 = Cloud Tiering のドキュメント
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

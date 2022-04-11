@@ -6,6 +6,7 @@ summary: Cloud Tiering は、複数の Google Cloud ストレージクラスと�
 ---
 = サポートされている Google Cloud ストレージクラスとリージョン
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

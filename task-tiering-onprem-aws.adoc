@@ -6,6 +6,7 @@ summary: アクセス頻度の低いデータを Amazon S3 に階層化するこ
 ---
 = オンプレミスの ONTAP クラスタから Amazon S3 へデータを階層化する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

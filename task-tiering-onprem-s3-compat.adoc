@@ -6,6 +6,7 @@ summary: Simple Storage Service （ S3 ）プロトコルを使用する任意�
 ---
 = オンプレミスの ONTAP クラスタから S3 オブジェクトストレージへデータを階層化する
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

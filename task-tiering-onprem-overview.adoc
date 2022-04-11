@@ -7,6 +7,7 @@ summary: Cloud Tiering を使用すると、オンプレミスの各クラスタ
 = クラスタからデータ階層化の概要を取得します
 :toc: macro
 :hardbreaks:
+:allow-uri-read: 
 :toc: 
 :nofooter: 
 :icons: font
