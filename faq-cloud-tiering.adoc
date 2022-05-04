@@ -39,7 +39,7 @@ ONTAP に関連する質問を次に示します。
 
 === どのような種類の ONTAP システムがサポートされていますか。
 
-クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。
+クラウド階層化は、シングルノードクラスタとハイアベイラビリティAFF 、FAS クラスタ、ONTAP Select クラスタでサポートされています。FabricPool ミラー構成のクラスタもサポートされますが、構成についてはSystem ManagerまたはONTAP CLIを使用して実行する必要があります。
 
 
 
@@ -76,7 +76,15 @@ Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用で
 
 === サポートされているオブジェクトストレージプロバイダを教えてください。
 
-Amazon S3 、 Azure BLOB ストレージ、 Google Cloud Storage 、 NetApp StorageGRID 、および S3 互換のオブジェクトストレージプロバイダがサポートされます。
+Cloud Tieringは、次のオブジェクトストレージプロバイダをサポートしています。
+
+* Amazon S3
+* Microsoft Azure Blob
+* Google クラウドストレージ
+* NetApp StorageGRID
+* S3 互換オブジェクトストレージ
+* IBM Cloud Object Storage（ただし、FabricPool の設定はSystem ManagerまたはONTAP CLIを使用して実行する必要があります）
+
 
 
 

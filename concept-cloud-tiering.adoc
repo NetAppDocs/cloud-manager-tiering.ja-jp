@@ -18,10 +18,9 @@ summary: ネットアップの Cloud Tiering Service は、アクセス頻度の
 
 Cloud Tiering サービスには、 FabricPool の機能が活用されています。FabricPool はネットアップデータファブリックのテクノロジで、低コストのオブジェクトストレージへデータを自動で階層化することができます。アクティブな（ホットな）データはローカル階層（オンプレミスの ONTAP アグリゲート）に残り、アクセス頻度の低い（コールド）データはクラウド階層に移動されます。移動されると、 ONTAP のデータ効率は維持されます。
 
-従来、オール SSD アグリゲートを使用する AFF および FAS システムでサポートされていた ONTAP 9.8 以降では、高性能の SSD に加え、 HDD で構成されるアグリゲートからデータを階層化できます。を参照してください https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html["FabricPool を使用する際の考慮事項と要件"^] を参照してください。
+オールSSDアグリゲートを使用するAFF 、FAS 、およびONTAP Select システムでサポートされていたのは、ONTAP 9.8以降で、高性能のSSDに加え、HDDで構成されるアグリゲートからデータを階層化できるようになりました。を参照してください https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html["FabricPool を使用する際の考慮事項と要件"^] を参照してください。
 
-
-TIP: クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。
+Cloud Tieringライセンスは、FabricPool ミラー構成内のクラスタと共有できます（MetroCluster 構成は含まれません）。FabricPool の設定は、System ManagerまたはONTAP CLIを使用し、実行する必要があります https://docs.netapp.com/us-en/cloud-manager-tiering/task-licensing-cloud-tiering.html#apply-cloud-tiering-licenses-to-clusters-in-special-configurations["これらのタイプのクラスタのライセンスは、Cloud Tieringを使用して提供されています。"]
 
 
 
@@ -54,6 +53,8 @@ TIP: Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専�
 * S3 互換オブジェクトストレージ
 * NetApp StorageGRID
 
+
+Cloud Tieringライセンスは、IBM Cloud Object Storageにデータを階層化するクラスタと共有できます。FabricPool の設定は、System ManagerまたはONTAP CLIを使用して実行する必要があります https://docs.netapp.com/us-en/cloud-manager-tiering/task-licensing-cloud-tiering.html#apply-cloud-tiering-licenses-to-clusters-in-special-configurations["このタイプの構成のライセンスは、Cloud Tieringを使用して提供されています。"]
 
 
 NOTE: NAS ボリュームからパブリッククラウドまたは StorageGRID などのプライベートクラウドにデータを階層化できます。SAN プロトコルがアクセスするデータを階層化する場合は、接続に関する考慮事項に基づいてプライベートクラウドを使用することを推奨します。
