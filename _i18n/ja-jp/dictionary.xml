@@ -479,22 +479,8 @@
   <block id="713c8c828c3a489fe12e8ff542eb2cf5" category="doc">Cloud Tiering Technical FAQ 』を参照してください</block>
   <block id="253b40ae359ba25b56231803430c4873" category="section-title">ONTAP</block>
   <block id="f44f871d75a3f8fcde43750355e19ee9" category="paragraph">ONTAP に関連する質問を次に示します。</block>
-  <block id="bcfdd572996c92a17253dd02c94ff05a" category="section-title">ONTAP クラスタの要件を教えてください。</block>
-  <block id="54f08daff48062927bd5b6e1520b9cfb" category="paragraph">コールドデータの階層化先によって異なります。以下を参照してください。</block>
-  <block id="e840aa898e671e53d4915f12ee8a5246" category="list-text"><block ref="e840aa898e671e53d4915f12ee8a5246" category="inline-link-macro-rx"></block></block>
-  <block id="732f8e26a83d5646c5dd2f3b4d84df9b" category="list-text"><block ref="732f8e26a83d5646c5dd2f3b4d84df9b" category="inline-link-macro-rx"></block></block>
   <block id="be0b62dd35badd1c098da00c97d5157d" category="inline-link-macro">オンプレミスの ONTAP クラスタから Google Cloud Storage へデータを階層化する</block>
-  <block id="e9e8757e1d3fdb62e5334f4f52b5f2ae" category="list-text"><block ref="e9e8757e1d3fdb62e5334f4f52b5f2ae" category="inline-link-macro-rx"></block></block>
-  <block id="b6044fdf5525c992857d43d67b37c602" category="list-text"><block ref="b6044fdf5525c992857d43d67b37c602" category="inline-link-macro-rx"></block></block>
-  <block id="d50216d7a2176675e25061e3259b0fb1" category="list-text"><block ref="d50216d7a2176675e25061e3259b0fb1" category="inline-link-macro-rx"></block></block>
-  <block id="e6665ff477e45a0cedda0dbc3bab0e98" category="section-title">Cloud Tiering を使用すると、アクセス頻度の低いデータのレポートを作成でき</block>
-  <block id="8b1c9ee3f402b49f0590fe82777e52c0" category="paragraph">はい、 Cloud Tiering を使用すると、各アグリゲートでアクセス頻度の低いデータレポートを有効にできますこの設定により、アクセス頻度の低いデータのうち、低コストのオブジェクトストレージに階層化できるデータの量を特定できます。</block>
-  <block id="cfc2bd864df293e5fa96159d48f1bf8a" category="admonition">Cloud Tiering を使用すると、クラスタで ONTAP 9.6 以降が実行されている場合に、 HDD アグリゲートに対する Inactive Data Reporting を有効にできます。</block>
-  <block id="fd5a180b1aa0e05f447f1549bd1b6619" category="section-title">NAS ボリュームと SAN ボリュームのデータを階層化できますか。</block>
   <block id="ca9d6825e8e49fc14bc0fe4d1949090e" category="section-title">Cloud Volumes ONTAP について教えてください。</block>
-  <block id="a89eb92e67fd2797dc2f3fa39a6f0792" category="paragraph">Cloud Volumes ONTAP システムを使用している場合は、クラスタダッシュボードにこれらのシステムが表示されるので、ハイブリッドクラウドインフラにおけるデータの階層化を完全に把握できます。</block>
-  <block id="6586ab793558594cad75789c4381a459" category="paragraph">クラスタダッシュボードでは、オンプレミスの ONTAP クラスタと同様の階層化情報を表示できます。運用の健常性、現在の削減量、削減機会、ボリュームとアグリゲートに関する詳細などです。</block>
-  <block id="f004a8cb46c29c98ed7882ef7bd2d0b9" category="paragraph">Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用です。Cloud Volumes ONTAP では、クラウド階層化からデータ階層化を設定することはできません。<block ref="9af043ec07eda2b8761144420bc7ff5f" category="inline-link-rx"></block>。</block>
   <block id="670aaecb1a526fbed439dad3ec353a96" category="section-title">オブジェクトストレージ</block>
   <block id="6145ae0abac8e546e57c1ba1c83ea8f8" category="paragraph">オブジェクトストレージに関連する質問を次に示します。</block>
   <block id="8dc2f269c974385fca1dd7d4bf3a051f" category="section-title">サポートされているオブジェクトストレージプロバイダを教えてください。</block>
@@ -521,38 +507,16 @@
   <block id="76897a6305088a3a5d1fece5a33249ea" category="paragraph">はい。ライフサイクル管理を有効にすると、 Cloud Tiering でデータをデフォルトのストレージクラス / アクセス階層から、一定期間後にコスト効率の高い階層に移行できます。</block>
   <block id="984a9d1964e75fac051f5e1514887373" category="paragraph">ライフサイクルルールは、選択したバケット内の Amazon S3 および Google Cloud ストレージのすべてのオブジェクト、および選択したストレージアカウント内の Azure Blob に対応するすべてのコンテナに適用されます。</block>
   <block id="fe4a785cf549e843e958f443c4baf0fe" category="section-title">コネクタ</block>
-  <block id="b98538bd234ddf101a9b69e18a449c2d" category="paragraph">コネクタに関連する質問を次に示します。</block>
   <block id="417cf0f3678f81efde443c4a85c2acb8" category="section-title">コネクタはどこに取り付ける必要がありますか？</block>
   <block id="ca4f429ffa25591e74f6645a3406d7cd" category="list-text">データを S3 に階層化する場合、コネクタは AWS VPC またはオンプレミスに配置できます。</block>
   <block id="5eade04032997f0b51380954af58692a" category="list-text">BLOB ストレージにデータを階層化する場合、コネクタは Azure VNet または自社運用環境に配置できます。</block>
   <block id="b52bc8ec3f512acf9ca7f97350155425" category="list-text">データを Google Cloud Storage に階層化する場合、 Connector は Google Cloud Platform VPC 内に存在する必要があります。</block>
   <block id="98dae1b8caf3c488a405b3624212dfe9" category="list-text">StorageGRID やその他の S3 互換ストレージプロバイダにデータを階層化する場合は、 Connector をオンプレミスに配置する必要があります。</block>
-  <block id="a5fa5746370b608090b994a97b49e98b" category="section-title">ネットワーキング</block>
-  <block id="37a6612a08909d34d57127975e9d38f6" category="paragraph">ネットワークに関連する質問を次に示します。</block>
   <block id="ca2633366002c259c5cb1fa92bcb6f34" category="section-title">ネットワーク要件</block>
   <block id="a857e8cbfb2339a889d916977b65ec57" category="list-text">ONTAP クラスタが、オブジェクトストレージプロバイダへのポート 443 経由の HTTPS 接続を開始します。</block>
   <block id="e66bf922da0fd7062be32c8f9adf5f7c" category="list-text">StorageGRID の場合、 ONTAP クラスタは、ユーザ指定のポートから StorageGRID への HTTPS 接続を開始します（このポートは階層化のセットアップ時に設定可能です）。</block>
   <block id="5a7b146826969db8fcec8237bb37ca9e" category="list-text">コネクタには、ポート 443 経由での ONTAP クラスタへのアウトバウンド HTTPS 接続、オブジェクトストア、およびクラウド階層化サービスが必要です。</block>
   <block id="2f3ccf86e44d85ac02e49b28a63a02ba" category="paragraph">詳細については、以下を参照してください。</block>
-  <block id="6210ce9e459f6f7906c54777241e8e60" category="list-text"><block ref="6210ce9e459f6f7906c54777241e8e60" category="inline-link-macro-rx"></block></block>
-  <block id="b69744f0287fc376a04b40d2175488e8" category="list-text"><block ref="b69744f0287fc376a04b40d2175488e8" category="inline-link-macro-rx"></block></block>
-  <block id="3203d9b009980256b26bb52b34d66725" category="list-text"><block ref="3203d9b009980256b26bb52b34d66725" category="inline-link-macro-rx"></block></block>
-  <block id="c0fd9ad13373a5f80c5206c79b2cec2a" category="list-text"><block ref="c0fd9ad13373a5f80c5206c79b2cec2a" category="inline-link-macro-rx"></block></block>
-  <block id="09c6943c8caf27166a1a55855f099dda" category="list-text"><block ref="09c6943c8caf27166a1a55855f099dda" category="inline-link-macro-rx"></block></block>
-  <block id="d08ccf52b4cdd08e41cfb99ec42e0b29" category="section-title">権限</block>
-  <block id="f62dcb7386eaf506309de5160bd02c50" category="paragraph">権限に関連する質問を次に示します。</block>
-  <block id="4522a1d4b0d9206d13528cf542a074b3" category="section-title">AWS で必要な権限</block>
-  <block id="130be31a684effcc1ca233dec9da47e3" category="inline-link-macro">をクリックして S3 バケットを管理します</block>
-  <block id="0639b88e83c9fb75f608ce27a4447149" category="section-title">Azure で必要な権限</block>
-  <block id="516e07b4e60ac0b13608986f125a4fba" category="paragraph">Cloud Manager に提供する必要がある権限以外で追加の権限は必要ありません。</block>
-  <block id="fe3f9db90b5b9920406818b6f2f9b91e" category="section-title">Google Cloud Platform に必要な権限は何ですか。</block>
-  <block id="e8cb0b84cef9a781a29475aba9138119" category="inline-link-macro">ストレージアクセスキーがあるサービスアカウント</block>
-  <block id="12c393c7d96a847b834f4ea7fd4cfb18" category="paragraph">Storage Admin の権限が必要です <block ref="6c3c925162f58f657b5fbeaa3563c6dd" category="inline-link-macro-rx"></block>。</block>
-  <block id="4c22f29fabd1d7091b7c451833ecdce4" category="section-title">StorageGRID に必要な権限</block>
-  <block id="b9e0a0d3dfde0dac493e32dc02dc43a7" category="inline-link-macro">S3 権限が必要です</block>
-  <block id="937f664f7c63d50553031b05e7756597" category="paragraph"><block ref="351190b29c1f7a3844dd35967fd2ae54" category="inline-link-macro-rx"></block>。</block>
-  <block id="5e569ca5b951c17bf4802afb37a89bf3" category="section-title">S3 互換のオブジェクトストレージにはどのような権限が必要ですか。</block>
-  <block id="8c006bf4272613635c13c9ff5db1f075" category="paragraph"><block ref="d2239b3c87c0305d493f4a0ee8888f47" category="inline-link-macro-rx"></block>。</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法的通知</block>
   <block id="4940124e8487cb4ea36f1511a195cf66" category="inline-link-macro">Cloud Manager 3.9 に関する注意事項</block>
   <block id="c069fcc68c5dfa73ccc99924c836cae9" category="list-text"><block ref="c069fcc68c5dfa73ccc99924c836cae9" category="inline-link-macro-rx"></block></block>
@@ -855,7 +819,6 @@
   <block id="cb6793246bf8a1d9872b2f128304ed8c" category="list-text">Glacier のインスタント検索</block>
   <block id="ce34acaac9ca080c6cf882736711598e" category="admonition">Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用です。<block ref="9af043ec07eda2b8761144420bc7ff5f" category="inline-link-rx"></block>。</block>
   <block id="1c8b696d9c11af6b6bfbc6c0a7e4a61f" category="list-text">Cloud Backup も、階層化ポリシーが設定されたボリュームに同様の影響を受けます。<block ref="4e28c1a1682c24a0aaf57d23ca62ce4e" category="inline-link-rx"></block>。</block>
-  <block id="7399e8f6e7163289ee0ecfe3413b3c7a" category="paragraph">権限が必要です <block ref="169af6556d92f8f176136d72d4ee3858" category="inline-link-macro-rx"></block>。</block>
   <block id="6cb8333618f00b139da255e7f5a82ea0" category="section-title">Amazon S3 Glacier Instant Retrieval ストレージクラスが使用可能になりました</block>
   <block id="199090bb5d58df554b18a5cb68acb0b7" category="section-title">Cloud Tiering は、 ONTAP Select システムで完全に認定されています</block>
   <block id="a74220a8acc78d1041352afb305af18f" category="paragraph">AFF システムと FAS システムのデータを階層化するだけでなく、 ONTAP Select システムからクラウドストレージにもアクセス頻度の低いデータを階層化できるようになりました。</block>
@@ -925,10 +888,7 @@
   <block id="2435df85f1fbddfaa74ed9d9b389396e" category="inline-link">これらのタイプのクラスタのライセンスは、Cloud Tieringを使用して提供されています。</block>
   <block id="602d3c419c8a2f0671f1f332facbd3f6" category="paragraph">Cloud Tieringライセンスは、FabricPool ミラー構成内のクラスタと共有できます（MetroCluster 構成は含まれません）。FabricPool の設定は、System ManagerまたはONTAP CLIを使用し、実行する必要があります<block ref="f01d00e65c71afcc96316056bf32ae1d" category="inline-link-rx"></block></block>
   <block id="17284df03fb9788b01cced519aa7b242" category="inline-link">このタイプの構成のライセンスは、Cloud Tieringを使用して提供されています。</block>
-  <block id="41229158c41a9daeb4112753b1bf2ea1" category="paragraph">Cloud Tieringライセンスは、IBM Cloud Object Storageにデータを階層化するクラスタと共有できます。FabricPool の設定は、System ManagerまたはONTAP CLIを使用して実行する必要があります<block ref="ed2970faba694b446adb4cf5afc34bcc" category="inline-link-rx"></block></block>
-  <block id="dcc42a339dcf66c4ea4b130eaa04710e" category="paragraph">クラウド階層化は、シングルノードクラスタとハイアベイラビリティAFF 、FAS クラスタ、ONTAP Select クラスタでサポートされています。FabricPool ミラー構成のクラスタもサポートされますが、構成についてはSystem ManagerまたはONTAP CLIを使用して実行する必要があります。</block>
   <block id="dfbee056730af589714f6061683bf3c8" category="paragraph">Cloud Tieringは、次のオブジェクトストレージプロバイダをサポートしています。</block>
-  <block id="5463fae7936bec29b8ec624ad9b684b3" category="list-text">IBM Cloud Object Storage（ただし、FabricPool の設定はSystem ManagerまたはONTAP CLIを使用して実行する必要があります）</block>
   <block id="d3e8cd2e370974f27de1b310b4aa8cb3" category="section-title">2022年5月3日</block>
   <block id="a74300b6b08791dda4f54d473a58e17a" category="section-title">Cloud Tieringは、追加のクラスタ構成をサポートしています</block>
   <block id="afacb33ad65bcd63eb15aeba04b4aed0" category="inline-link">これらのタイプのクラスタのライセンスを設定する方法を参照してください。</block>
@@ -938,9 +898,7 @@
   <block id="c37d8d783a15bb3dc29d360fd96058fa" category="paragraph">Cloud Tiering サービスを使用した Cloud Manager 内でサポートされる階層化構成の新しい * Cloud Tiering * ライセンスが、 2021 年 8 月に導入されました。Cloud Managerでは、現在、Amazon S3、Azure Blob Storage、Google Cloud Storage、S3互換オブジェクトストレージ、IBM Cloud Object Storage、StorageGRID などのクラウドストレージへの階層化をサポートしています。</block>
   <block id="6ddd4d2b3e22e1f0dbfa3f2cfb99611d" category="paragraph">これまでオンプレミスONTAP データをクラウドに階層化するために使用していたFabricPool *ライセンスは、インターネットにアクセスできないサイト（「ダークサイト」とも呼ばれる）やFabricPool ミラーを使用するMetroCluster システムのONTAP 環境でのみ保持されていました。これらの構成を使用している場合は、System ManagerまたはONTAP CLIを使用して、各クラスタにFabricPool ライセンスをインストールします。</block>
   <block id="d99641589694e93765fada1790db2a0e" category="section-title">特別な構成のクラスタにCloud Tieringライセンスを適用します</block>
-  <block id="418b697bde99089a773007515cb577ff" category="paragraph">次の構成のONTAP クラスタでは、クラウド階層化ライセンスを使用できますが、通常のシングルノードクラスタおよびHA構成のONTAP クラスタとは別の方法で適用する必要があります。</block>
   <block id="ec4ebd20c319e970c3f59b1f47802c0b" category="list-text">階層化ミラー構成のクラスタ（2つのオブジェクトストアに接続されているクラスタ）</block>
-  <block id="6d495d0178eaa5b62f4c916a1b7fcfc4" category="paragraph">MetroCluster 構成を使用したFabricPool ミラーは、現在のところサポートされていません</block>
   <block id="04b39654e6e5a443553195d1e2779190" category="list-text">IBM Cloud Object Storageに階層化されたクラスタ</block>
   <block id="c8fe0ffee9071759c56b9a7d98bae676" category="section-title">FabricPool ライセンスのある既存のクラスタ向けのプロセス</block>
   <block id="1451b23352470f925dac87a3da139fca" category="inline-link-macro">Cloud Tieringで、これらの特別なクラスタタイプを検出できます</block>
@@ -969,4 +927,174 @@
   <block id="72c2d35b547a9f20d83b2001c0deb1de" category="paragraph"><block ref="72c2d35b547a9f20d83b2001c0deb1de" category="inline-link-rx"></block></block>
   <block id="653000cdcda1dc1026b9ce4d1c8f33bd" category="inline-link">IBM Cloud Object Storage情報への階層化</block>
   <block id="5bc01400af176dafcc4180cd4038b69d" category="paragraph"><block ref="5bc01400af176dafcc4180cd4038b69d" category="inline-link-rx"></block></block>
+  <block id="4380a240602c0c6f68e3e1f76af87ade" category="paragraph">Cloud Tieringライセンスは、IBM Cloud Object Storageにデータを階層化するクラスタと共有できます。FabricPool の設定は、System ManagerまたはONTAP CLIを使用し、実行する必要があります<block ref="ed2970faba694b446adb4cf5afc34bcc" category="inline-link-rx"></block></block>
+  <block id="1457e49f8dccec856889afc7198d7b7f" category="section-title">Cloud Tiering Service の略</block>
+  <block id="38f452586e2a055585812c12639a1c00" category="paragraph">Cloud Tieringの仕組みについては、次のFAQを参照してください。</block>
+  <block id="56f1d5aa6fc7801567f63a1a34bbe555" category="section-title">Cloud Tieringサービスを使用するメリットは何ですか？</block>
+  <block id="e6f922dcb93508c2afcbdd85566ed3b8" category="paragraph">Cloud Tieringは、データの急増に伴う課題に対応し、次のようなメリットを提供します。</block>
+  <block id="a1f517fb951a64f2e9c18d82ac80635c" category="list-text">クラウドへのデータセンターを容易に拡張できるため、最大50倍のスペースを確保できます</block>
+  <block id="b5d47b5d2ee718d3ed7be4705f31fc79" category="list-text">ストレージの最適化により、ストレージを平均70%削減</block>
+  <block id="8a1f08e20da0aa3ca605937149dc8c58" category="list-text">総所有コストを平均30%削減</block>
+  <block id="a5ab98909585acf3290da555f1d3efd4" category="list-text">アプリケーションをリファクタリングする必要はありません</block>
+  <block id="cfc39acc8a57a03f82a0c4f08264a41a" category="section-title">クラウドへの階層化にはどのようなデータが役立ちますか？</block>
+  <block id="6774ec5d602722ba9f874d9a584d885f" category="paragraph">基本的に、プライマリストレージシステムとセカンダリストレージシステムの両方でアクセス頻度の低いデータがあれば、クラウドへの移行のターゲットとして適しています。プライマリシステムでは、このようなデータには、スナップショット、履歴レコード、および完了したプロジェクトが含まれます。セカンダリシステムでは、DRとバックアップ用に作成されたプライマリデータのコピーを含むすべてのボリュームが対象となります。</block>
+  <block id="b7fdfbf21e02165dcc2bf4d084323e57" category="section-title">NASボリュームとSANボリュームの両方からデータを階層化できますか。</block>
+  <block id="b9d68db9eacfc19cb90d962488a81e37" category="paragraph">はい。NASボリュームからパブリッククラウドまたはStorageGRID などのプライベートクラウドにデータを階層化できます。SANプロトコルでアクセスされるデータを階層化する場合、SANプロトコルはNASよりも接続の問題の影響を受けやすいため、プライベートクラウドを使用することを推奨します。</block>
+  <block id="16b6de392c01a8e8b18c95209db4abc2" category="section-title">アクセス頻度の低いデータや使用頻度の低いデータの定義とは何ですか？また、それらをどのように制御するのですか？</block>
+  <block id="c8d0b7a1b682a66185f312e984fa9632" category="paragraph">コールドデータと呼ばれることもあるのは、「一定の時間アクセスされなかったボリュームブロック（メタデータを除く）」です。「時間」は、cooling-daysという名前の階層化ポリシー属性によって決まります。</block>
+  <block id="5e7895e85d2a8ce94a95b1e2d63c9a62" category="section-title">Cloud Tieringを使用すると、ストレージ効率化による削減効果をクラウド階層に維持できますか。</block>
+  <block id="ae3e415a4fc13a56be5e1868c9aa2a6e" category="paragraph">はい。データをクラウド階層に移動するときに、圧縮、重複排除、コンパクションなどのONTAP のボリュームレベルのストレージ効率化機能が維持されます。</block>
+  <block id="fe862e8407cd35832c11efb6a90397ff" category="section-title">FabricPool とクラウド階層化の違いは何ですか？</block>
+  <block id="7f7e71c666ac6e3a63bc3a7132680d3e" category="paragraph">FabricPool は、ONTAP CLIとSystem Managerを使用して自己管理することも、クラウド階層化を使用してサービスとして管理することもできる、ONTAPの階層化テクノロジです。Cloud Tieringを使用すると、FabricPool は、ONTAP とクラウドの両方で高度な自動化プロセスを使用したマネージドサービスに変わり、ハイブリッドクラウドとマルチクラウドの両方の環境における階層化の可視性と制御性が向上します。</block>
+  <block id="0dcf524393e05cee3deb3f046b007d6a" category="section-title">データをクラウドに階層化してディザスタリカバリやバックアップ/アーカイブに使用できますか。</block>
+  <block id="11a0d2337d67ae21839695ee035fc0a0" category="paragraph">いいえボリュームのメタデータはパフォーマンス階層から階層化されることはないため、オブジェクトストレージに格納されているデータに直接アクセスすることはできません。</block>
+  <block id="ede19369ca5aebd79f174cfded223842" category="paragraph">ただし、Cloud Tieringを使用すると、セカンダリシステムとSnapMirrorデスティネーションボリューム（DPボリューム）にデータを階層化し、データセンターの設置面積とTCOを削減することで、対費用効果の高いバックアップとDRを実現できます。</block>
+  <block id="889a2ba97a353c789347d312f006b7c8" category="section-title">Cloud Tieringは、ボリュームレベルまたはアグリゲートレベルで適用されていますか。</block>
+  <block id="20ff712f2c649ea611970e47fc3bb71d" category="paragraph">クラウド階層化は、各ボリュームに階層化ポリシーを関連付けることでボリュームレベルで有効になります。コールドデータはブロックレベルで識別されます。</block>
+  <block id="0a418cc130f24bc61fb16dfcfa3beaf8" category="section-title">クラウド階層化は、どのブロックをクラウドに階層化するかをどのようにして決定しますか？</block>
+  <block id="339f31b903bd01f3382f7efda1a872be" category="inline-link-macro">ボリューム階層化ポリシー</block>
+  <block id="679627f92e200827a33b3bcdf0e0bb7f" category="paragraph">ボリュームに関連付けられている階層化ポリシーは、どのブロックをいつ階層化するかを制御するメカニズムです。ポリシーでは、データブロックのタイプ（スナップショット、ユーザデータ、またはその両方）とクーリング期間を定義します。を参照してください <block ref="7c830597cf59636867131d9763d1dea8" category="inline-link-macro-rx"></block> を参照してください。</block>
+  <block id="4f138351e1daf377d2327bde6f6b16ce" category="section-title">クラウドの階層化でInactive Data Reportingは有効になりますか。</block>
+  <block id="5f7c4d8270cb1dd98f5c715afa143202" category="paragraph">はい、Cloud Tieringを使用すると、各アグリゲートでInactive Data Reporting（IDR）を有効にできます。この設定により、アクセス頻度の低いデータのうち、低コストのオブジェクトストレージに階層化できるデータの量を特定できます。</block>
+  <block id="cd9a75b2f2fe179ebd8fccd8eeb8bb03" category="section-title">IDRを実行してからどのくらいの時間で情報を確認できますか？</block>
+  <block id="0ea5aed815f8939cfee05aa5fc613dc7" category="paragraph">IDRは、設定されたクーリング期間が経過したあとに情報の表示を開始します。ONTAP 9.7以前を使用した場合、IDRのクーリング期間は調整できず、31日間でした。ONTAP 9.8以降では、IDRのクーリング期間を最大183日に設定できます。</block>
+  <block id="4e36d3a72c9251eabfe11ee25feb51e3" category="section-title">ライセンスとコスト</block>
+  <block id="c7c3cbbc8ffdc87ba6ed248d75026811" category="paragraph">Cloud Tieringを使用するためのライセンスとコストに関するFAQを次に示します。</block>
+  <block id="67dcf2ad2c76ac9202261636a09b836b" category="section-title">Cloud Tieringのコストはいくらですか？</block>
+  <block id="36d19ca1264fd7d33c40adad1e94f58f" category="paragraph">コールドデータをパブリッククラウドに階層化する場合：</block>
+  <block id="76e8ceb798ce071cb7a385224a57c607" category="list-text">従量課金制（PAYGO）の場合、使用量に基づくサブスクリプション：GBあたり月額$0.05</block>
+  <block id="d70dcca5b166b4d601318556ff7b9c0b" category="list-text">年単位（BYOL）のタームベースサブスクリプション：GBあたり0.033ドル/月から</block>
+  <block id="2d8a56626e9ef86924e67836a8d5c8da" category="paragraph">コールドデータをNetApp StorageGRID システム（プライベートクラウド）に階層化しても、コストはかかりません。</block>
+  <block id="a901d6a825e66cb01eb47cc7f8078f70" category="section-title">同じONTAP クラスタにBYOLライセンスとPAYGOライセンスの両方を利用できますか。</block>
+  <block id="51f82ca656528cf0a0e25d3afcf4094b" category="paragraph">はい。Cloud Tieringを使用すると、BYOLライセンス、PAYGOサブスクリプション、またはその両方を組み合わせて使用できます。</block>
+  <block id="df633ebdc2836fc65b2b5c8df3071fad" category="section-title">BYOLの容量制限に達した場合はどうなりますか？</block>
+  <block id="2a4ef466f4a2aaf004e4bd8d6ee2190f" category="paragraph">BYOLの容量制限に達すると、新しいコールドデータの階層化が停止し、それまで階層化されていたすべてのデータにアクセスできる状態になります。PAYGOマーケットプレイスで_ Cloud Manager - Deploy &amp; Manage Cloud Data Services _を利用している場合、新しいコールドデータは引き続きオブジェクトストレージに階層化され、使用量に応じて料金が発生します。</block>
+  <block id="01fc89841bd324e9a84c964564f22b64" category="section-title">Cloud Tieringライセンスには、クラウドプロバイダからの出力料金が含まれていますか。</block>
+  <block id="9dad9dd39241a9273189835c0c05bca9" category="paragraph">いいえ、できません。</block>
+  <block id="4db80c7f4174dd6b7d23b536c737df16" category="section-title">オンプレミスシステムのリハイドレーションは、クラウドプロバイダが負担する出力コストの影響を受けますか。</block>
+  <block id="9c84419d8ba3386b34c3566885dd6724" category="paragraph">はい。パブリッククラウドからの読み取りはすべて出力料金の対象となります。</block>
+  <block id="11006dd4b5de1e92671cb84abb3d0d44" category="section-title">クラウドの料金を見積もる方法Cloud Tieringには、「What if」モードがありますか。</block>
+  <block id="4847e034bb0a55fcbc8a3380d6a3ab80" category="inline-link">AWS</block>
+  <block id="3a580f142203677f1f0bc30898f63f53" category="inline-link">Azure</block>
+  <block id="56ef2682280ac110060b881925a87b80" category="inline-link">Google Cloud</block>
+  <block id="de130b9b09371708e2c13a8dffd46b5f" category="paragraph">クラウドプロバイダがデータをホストするためにどの程度の料金を請求するかを見積もる最良の方法は、計算ツールを使用することです。<block ref="832146750434f962d95fccd63e75be1f" category="inline-link-rx"></block>、<block ref="75717a19b426dc37c8f6453abf5f30c8" category="inline-link-rx"></block> および<block ref="f2965905675b45f3af23b46362320e65" category="inline-link-rx"></block>。</block>
+  <block id="54f567f0c8172dd99a94a339ea9351f1" category="section-title">オブジェクトストレージからオンプレミスストレージへのデータの読み取り/読み出しに関して、クラウドプロバイダは追加料金を請求していますか？</block>
+  <block id="c75538424cfb137ff45e22419201b0ff" category="inline-link">Amazon S3の価格設定</block>
+  <block id="c7fe1da619ea4dc60271978fef1e44fe" category="inline-link">Block BLOBの価格設定</block>
+  <block id="f0597479b6555c19f89fc843f1c8d98c" category="inline-link">クラウドストレージの価格設定</block>
+  <block id="80fb8aa8c4c5c3477d1c619e25dee21c" category="paragraph">はい。チェックしてください<block ref="134b76f780a567f977f9c0667960c527" category="inline-link-rx"></block>、<block ref="42cfb61355c94594363648e2439176bf" category="inline-link-rx"></block>および<block ref="fb963a69fe55ff45676c36ad0b99dda1" category="inline-link-rx"></block> データの読み取り/取得に伴う追加の価格設定については、を参照してください。</block>
+  <block id="03a5e5708e2ca1e0ed97c088a2f866a3" category="section-title">Cloud Tieringを有効にする前に、ボリュームの削減量を見積もり、コールドデータレポートを取得するにはどうすればよいですか。</block>
+  <block id="a0b89ab6b5eac539fb7e734c5325f52e" category="paragraph">概算見積書を入手するには、ONTAP クラスタをCloud Managerに追加し、階層化タブにあるCloud Tiering Cluster Dashboardから確認します。Inactive Data Reporting（IDR）が無効になっているか、十分な期間アクティブ化されていない場合、Cloud Tieringは、業界定数の70%を使用して削減量を計算します。IDRデータを利用できるようになると、Cloud Tieringがコスト削減効果を正確な数値に更新します。</block>
+  <block id="360f208f0200dcfe1f02d2beac7d1a99" category="section-title">Cloud TieringがサポートしているONTAP のバージョンはどれですか？</block>
+  <block id="d221b871da22439c86adc694691b8ac6" category="paragraph">Cloud Tieringは、ONTAP バージョン9.2以降をサポートしています。</block>
+  <block id="83c5a7ec07bde90cd5d13c81363f989e" category="paragraph">クラウド階層化は、シングルノードクラスタとハイアベイラビリティAFF 、FAS クラスタ、ONTAP Select クラスタでサポートされています。</block>
+  <block id="93a294a492966845cedd2b8851ba5e94" category="paragraph">FabricPool ミラー構成のクラスタもサポートされますが、階層化設定の実行にはSystem ManagerまたはONTAP CLIを使用する必要があります。</block>
+  <block id="a876ec112f46ac7e9d03cc5e9d61ab8f" category="section-title">HDDのみを使用するFAS システムからデータを階層化できますか。</block>
+  <block id="6af3c671d9ae3cfdf4e5db8e741c4949" category="paragraph">はい。ONTAP 9.8以降では、HDDアグリゲートでホストされているボリュームからデータを階層化できます。</block>
+  <block id="5f2bd910e80c6ecc503341b164c23796" category="section-title">HDDを使用するFAS ノードがあるクラスタに参加しているAFF からデータを階層化できますか。</block>
+  <block id="5edcff9a2294626df4faaca093740318" category="paragraph">はい。Cloud Tieringは、任意のアグリゲートでホストされたボリュームを階層化するように設定できます。データ階層化設定は、使用するコントローラの種類や、クラスタが異機種混在であるかどうかに関係なく使用されます。</block>
+  <block id="c7e59c5a2a6e1a7e5b4077fc15af9a55" category="paragraph">Cloud Volumes ONTAP システムを使用している場合は、Cloud Tiering Cluster Dashboardにアクセスして、ハイブリッドクラウドインフラにおけるデータの階層化を最大限に確認できます。ただし、Cloud Volumes ONTAP システムはCloud Tieringから読み取り専用です。Cloud Volumes ONTAP では、クラウド階層化からデータ階層化を設定することはできません。<block ref="9af043ec07eda2b8761144420bc7ff5f" category="inline-link-rx"></block>。</block>
+  <block id="3b12cd959256e1fe1998855f1f4469c7" category="section-title">使用しているONTAP クラスタに必要なその他の要件は何ですか。</block>
+  <block id="8a35952a9fd8375f6367c7e469edb4c8" category="paragraph">コールドデータの階層化先によって異なります。詳細については、次のリンクを参照してください。</block>
+  <block id="83d030b1e01c7afcd4424fd7357db055" category="inline-link-macro">Amazon S3へのデータの階層化</block>
+  <block id="15a4c60a0f86c99eaac0eebe021afdfe" category="list-text"><block ref="15a4c60a0f86c99eaac0eebe021afdfe" category="inline-link-macro-rx"></block></block>
+  <block id="afdc652a5d53bafec9f489b5ce09cea6" category="inline-link-macro">Azure BLOBストレージへのデータの階層化</block>
+  <block id="16c9006ef3f4688fbb41ca0acded147c" category="list-text"><block ref="16c9006ef3f4688fbb41ca0acded147c" category="inline-link-macro-rx"></block></block>
+  <block id="648737b64ba36a1b484bc9ea503a8938" category="inline-link-macro">Google Cloud Storageへのデータの階層化</block>
+  <block id="42eec2063d7d83b3a19aef7f868bc8c0" category="list-text"><block ref="42eec2063d7d83b3a19aef7f868bc8c0" category="inline-link-macro-rx"></block></block>
+  <block id="9b1a7cdc95a00a5d18060e6475890567" category="inline-link-macro">データをStorageGRID に階層化する</block>
+  <block id="ef76c48b8267776681352419137750d5" category="list-text"><block ref="ef76c48b8267776681352419137750d5" category="inline-link-macro-rx"></block></block>
+  <block id="342574295c96deee1abf758e3bba1245" category="inline-link-macro">データをS3オブジェクトストレージに階層化する</block>
+  <block id="73a62b30e1f556f5febcb50fa982a99d" category="list-text"><block ref="73a62b30e1f556f5febcb50fa982a99d" category="inline-link-macro-rx"></block></block>
+  <block id="eeb240bdbe8975d674a61e517f39633f" category="list-text">IBM Cloud Object Storage（FabricPool の設定はSystem ManagerまたはONTAP CLIを使用して実行する必要があります）</block>
+  <block id="2c08a1d27d6545c0ad01ad140562498b" category="section-title">Amazon S3 Glacier FlexibleおよびS3 Glacier Deep Archiveがクラウド階層化でサポートされていないのはなぜですか。</block>
+  <block id="f69e1396e6ee64547d56719752b81f87" category="paragraph">Amazon S3 Glacier FlexibleおよびS3 Glacier Deep Archiveがサポートされていない主な理由は、クラウド階層化がハイパフォーマンスな階層化解決策 として設計されているため、データを継続的に利用してすばやくアクセスし、読み出しできるようにする必要があるためです。S3 Glacier FlexibleおよびS3 Glacier Deep Archiveでは、データ読み出しが数分から48時間の間の任意の場所に格納されます。</block>
+  <block id="af7dafa9f010fa91db93c80604be8582" category="section-title">WasabiなどのS3互換のオブジェクトストレージサービスをCloud Tieringとともに使用できますか。</block>
+  <block id="84a20b13e3ea8fe117cd487b10cafd14" category="inline-link-macro">詳細はこちらをご覧ください</block>
+  <block id="de6d6c00be7f38cc0fb58e604e31efe9" category="paragraph">はい。ONTAP 9.8以降を使用しているクラスタでは、階層化UIからS3互換オブジェクトストレージを設定できます。 <block ref="dfc215f15d0188a75116c167a2fbbc9d" category="inline-link-macro-rx"></block>。</block>
+  <block id="94fe0352e28f43c2dee13351ec781840" category="section-title">同じアグリゲートに複数のバケットを接続できますか。</block>
+  <block id="59c02e24aae2d5e6f5ca4aecfe567460" category="paragraph">ミラーリングの目的で、アグリゲートごとに最大2つのバケットを接続できます。コールドデータは両方のバケットに同期的に階層化されます。バケットは、プロバイダや場所によって異なる場合があります。ただし、Cloud Tiering UIを使用した設定は現在サポートされていません。セットアップはSystem ManagerまたはCLIを使用して実行できます。</block>
+  <block id="dd7b95cf528df2e6a1ada6c6e3b3c8a8" category="section-title">同じクラスタ内の複数のアグリゲートに異なるバケットを接続できますか。</block>
+  <block id="b7e0155773c98acbf757ee23f8cc4b8c" category="paragraph">はい。一般的なベストプラクティスとして、1つのバケットを複数のアグリゲートに接続することを推奨します。ただし、パブリッククラウドを使用する場合は、オブジェクトストレージサービスのIOPSが最大であるため、複数のバケットを考慮する必要があります。ただし、Cloud Tiering UIを使用した設定は現在サポートされていません。セットアップはSystem ManagerまたはCLIを使用して実行できます。</block>
+  <block id="795944e4714141aa7f5bc7bca15b9cc7" category="section-title">ボリュームをクラスタ間で移行すると、階層化データはどうなりますか。</block>
+  <block id="ac2697251023e10e659e1d144374c46f" category="paragraph">ボリュームをクラスタ間で移行すると、コールドデータはすべてクラウド階層から読み取られます。デスティネーションクラスタ上の書き込み場所は、階層化が有効になっているかどうか、およびソースボリュームとデスティネーションボリュームで使用されている階層化ポリシーのタイプによって異なります。</block>
+  <block id="75e192e543376cd0700d28d7707c1400" category="section-title">同じクラスタ内のノード間でボリュームを移動すると、階層化データはどうなりますか？</block>
+  <block id="c8e8c3de3c7e9a3523115f25ca436702" category="paragraph">デスティネーションアグリゲートにクラウド階層が接続されていない場合、データはソースアグリゲートのクラウド階層から読み取られ、デスティネーションアグリゲートのローカル階層に完全に書き込まれます。デスティネーションアグリゲートにクラウド階層が接続されている場合、データはソースアグリゲートのクラウド階層から読み取られ、最初にデスティネーションアグリゲートのローカル階層に書き込まれます。これにより、迅速なカットオーバーが可能になります。その後、使用された階層化ポリシーに基づいてクラウド階層に書き込まれます。</block>
+  <block id="4eb0e04ff79ba8e58d2cc578b23ac20a" category="paragraph">ONTAP 9.6以降では、デスティネーションアグリゲートがソースアグリゲートと同じクラウド階層を使用している場合、コールドデータはローカル階層に戻されません。</block>
+  <block id="67c448fda360e613a946c8d4f3fe8903" category="section-title">階層化されたデータをオンプレミスに戻すにはどうすればよいですか？</block>
+  <block id="594e5f8f87d3f9aee64730282f1d9d11" category="inline-link-macro">データを高パフォーマンス階層に戻す方法をご覧ください</block>
+  <block id="4f73c67002a9ff6531da278f92c08e2e" category="paragraph">ライトバックは通常、読み取り時に実行され、階層化ポリシーのタイプによって異なります。ONTAP 9.8より前のバージョンでは、ボリューム移動処理を使用してボリューム全体を書き戻すことができます。9.8以降、階層化UIには、すべてのデータを*元に戻すオプションや*アクティブファイルシステムを戻すオプションがあります。 <block ref="5fc989c9b1011f539a0df96bd559f635" category="inline-link-macro-rx"></block>。</block>
+  <block id="5b9fbe75fbcd16763752424288950fad" category="section-title">既存のAFF / FASコントローラを新しいコントローラに交換する場合、階層化データをオンプレミスに戻すことはできますか。</block>
+  <block id="954ab271743046342c8c477272ccf1e2" category="paragraph">いいえ「ヘッド交換」手順 で変更されるのは、アグリゲートの所有権だけです。この場合、データを移動することなく新しいコントローラに変更されます。</block>
+  <block id="9ae27577765a14f9c236003effe69e5e" category="section-title">ディザスタリカバリのシナリオで、階層化されたデータを使用してボリュームまたはシステムをリカバリできますか。</block>
+  <block id="7d552a8536eeb68fc71cd57c3774fd42" category="paragraph">いいえボリュームのメタデータは常にローカルのパフォーマンス階層に格納されるため、災害が発生してローカル階層が失われると、メタデータも失われ、階層化されたデータを参照する方法もありません。</block>
+  <block id="be06043e635d6e3bb909d73510b44e3d" category="section-title">クラウドプロバイダのコンソールまたはオブジェクトストレージエクスプローラを使用して、バケットに階層化されたデータを確認できますか。オブジェクトストレージに格納されているデータをONTAP なしで直接使用できますか。</block>
+  <block id="d430f061b4da1d93d76a477eed713ad9" category="paragraph">いいえクラウドに対して構築、階層化されたオブジェクトには、単一のファイルは含まれず、複数のファイルから最大1、024個の4KBブロックが含まれます。ボリュームのメタデータは常にローカル階層に残ります。</block>
+  <block id="0c5d4e7461b4c75d3988c9aa8d81ab4f" category="paragraph">Cloud Manager Connectorに関連する質問を次に示します。</block>
+  <block id="c6dbaaf1bef168a38de37623edb997f7" category="section-title">コネクタは何ですか？</block>
+  <block id="e8b472be2b48b970a46d41e8388e4a0e" category="paragraph">Connectorは、クラウドアカウント内またはオンプレミスでコンピューティングインスタンス上で実行されるソフトウェアで、Cloud Managerによるクラウドリソースのセキュアな管理を可能にします。Cloud Tieringサービスを使用するには、Connectorを導入する必要があります。</block>
+  <block id="d2eea5ad2ae07890452da2aec5cffc98" category="section-title">コネクタをオンプレミスに導入できますか。</block>
+  <block id="b0ccf0f3fa1a27a2fbab1c35ebf8e0f5" category="inline-link">コネクタをオンプレミスに取り付ける方法については、を参照してください</block>
+  <block id="de7433c1562faa5f9b2ee55c74f16fa2" category="paragraph">はい。Connectorソフトウェアは、ネットワーク上のLinuxホストにダウンロードして手動でインストールできます。<block ref="5cffbbed8cdfbd25b645e94434fee757" category="inline-link-rx"></block>。</block>
+  <block id="eef7b8a2b79a5ecae955422af0ab3b72" category="section-title">Cloud Tieringを使用するには、クラウドサービスプロバイダを利用するアカウントが必要ですか？</block>
+  <block id="71b5e4019a71131db2052326884d8bbe" category="paragraph">はい。使用するオブジェクトストレージを定義するには、アカウントが必要です。VPCまたはVNet上のクラウドでコネクタを設定する際には、クラウドストレージプロバイダのアカウントも必要です。</block>
+  <block id="8ca6e099f9e16583824ee8e6a5727c40" category="section-title">コネクタに障害が発生した場合の意味は何ですか？</block>
+  <block id="eaafcaeadf723bfc8a83848a1422d73e" category="paragraph">コネクタに障害が発生した場合は、階層化された環境の表示のみが影響を受けます。すべてのデータにアクセスでき、新たに特定されたコールドデータはオブジェクトストレージに自動的に階層化されます。</block>
+  <block id="297e2ac2ec0bd88ad598062f4c07ee45" category="section-title">階層化ポリシー</block>
+  <block id="a98ae6e10c680f6fd9a1e3e043029254" category="section-title">使用可能な階層化ポリシー</block>
+  <block id="da09df112eb180303169daa41b71c993" category="paragraph">次の4つの階層化ポリシーがあります。</block>
+  <block id="ab41562ecd1ee6cdeb73670552480518" category="paragraph">●なし：すべてのデータを常時ホットに分類し、ボリュームからオブジェクトストレージにデータを移動できないようにします。●コールドスナップショット（Snapshotのみ）：コールドスナップショットブロックのみがオブジェクトストレージに移動されます。●コールドユーザデータとスナップショット（自動）：コールドスナップショットブロックとコールドユーザデータブロックの両方をオブジェクトストレージに移動します。●すべてのユーザデータ（ALL）：すべてのデータをコールドとして分類し、ボリューム全体をオブジェクトストレージにただちに移動します。</block>
+  <block id="2719cad5460eb9108696993a4c233dc2" category="inline-link-macro">階層化ポリシーの詳細については、こちらをご覧ください</block>
+  <block id="5ef61948a073dbcdfdb7d93caa1067ac" category="paragraph"><block ref="b9368c1c43c24f87d7a3626332a607af" category="inline-link-macro-rx"></block>。</block>
+  <block id="d0252572656bbedd8e24eed72a5822ea" category="section-title">データがコールドと見なされるのはどの時点ですか？</block>
+  <block id="106e953d8d4bea7ebaea7ab2455cf23d" category="paragraph">データの階層化はブロックレベルで行われるため、データブロックは一定期間アクセスされていないとコールドとみなされます。この期間は、階層化ポリシーのminimum-cooling-days属性によって定義されます。ONTAP 9.7以前の場合は2～63日、ONTAP 9.8以降は2～183日です。</block>
+  <block id="aa3f449e50a7b69fa0c38b77d2315143" category="section-title">クラウド階層に階層化される前のデータのデフォルトのクーリング期間</block>
+  <block id="e72bc0c8a17dadf8e8ad885b9700456f" category="paragraph">コールドスナップショットポリシーのデフォルトのクーリング期間は2日間で、コールドユーザデータとスナップショットのデフォルトのクーリング期間は31日です。クーリング日数パラメータは、「すべて」の階層化ポリシーには適用されません。</block>
+  <block id="4c8d66eef4460316cfa98d7ddb65f407" category="section-title">フルバックアップを実行するときに、オブジェクトストレージから取得された階層化データはすべて取得されますか。</block>
+  <block id="671953573a21e1af11abf07faf93e628" category="paragraph">フルバックアップ中は、すべてのコールドデータが読み取られます。データを取得する方法は、使用する階層化ポリシーによって異なります。「すべて」と「コールドユーザデータ」と「スナップショット」のポリシーを使用している場合、コールドデータはパフォーマンス階層に書き戻されません。コールドスナップショットポリシーを使用する場合は、古いスナップショットをバックアップに使用している場合にのみコールドブロックが取得されます。</block>
+  <block id="0adc9a7fadfec4bdbe53c692b448ba02" category="section-title">ボリュームあたりの階層化サイズを選択できますか。</block>
+  <block id="ba7eeea7b89db851a5b16f70113d0e08" category="paragraph">いいえただし、階層化に適したボリューム、階層化するデータの種類、およびクーリング期間は選択できます。そのためには、ボリュームに階層化ポリシーを関連付けます。</block>
+  <block id="c5d36ccefcfa686861df0abd0a5c8ebf" category="section-title">「すべてのユーザデータ」ポリシーはデータ保護ボリュームにとって唯一のオプションですか？</block>
+  <block id="ab5a6f9d24c7e7bf901c7287496d5263" category="paragraph">いいえデータ保護（DP）ボリュームは、使用可能な3つのポリシーのいずれかに関連付けることができます。データの書き込み先は、ソースボリュームとデスティネーション（DP）ボリュームで使用されるポリシーのタイプによって決まります。</block>
+  <block id="0616057f4f78150533746bae3e2dabf8" category="section-title">ボリュームの階層化ポリシーを「なし」にリセットしてコールドデータを元のサイズに戻すか、将来のコールドブロックがクラウドに移動されないようにしますか？</block>
+  <block id="4556fde470e1bf0424f8ed56f1547bfa" category="paragraph">階層化ポリシーをリセットしてもリハイドレーションは実行されませんが、新しいコールドブロックがクラウド階層に移動されないようにします。</block>
+  <block id="5456196e2d96b9ebbcb1803e293c3c85" category="section-title">データをクラウドに階層化したあとで階層化ポリシーを変更できますか。</block>
+  <block id="8b13568bd4836d78a9936fc596e78696" category="paragraph">はい。変更後の動作は、関連付けられた新しいポリシーによって異なります。</block>
+  <block id="fbea603debc39f725cfddd0c7fa68cd2" category="section-title">特定のデータがクラウドに移動されないようにするにはどうすればよいですか？</block>
+  <block id="6522850b31e6a215863b5d66a9246d80" category="paragraph">データを含むボリュームには階層化ポリシーを関連付けないでください。</block>
+  <block id="d24f7d2a27579d52c55ff0ec1034c183" category="section-title">ファイルのメタデータはどこに保存されますか？</block>
+  <block id="15d8a1f0933c73ea4bf6b82d894a60f8" category="paragraph">ボリュームのメタデータは常にローカルに、パフォーマンス階層に格納されます。クラウドに階層化されることはありません。</block>
+  <block id="85db56d490cdd7a31d40697ad1c9be3c" category="section-title">ネットワークとセキュリティ</block>
+  <block id="7b243cebf518a158c24e8f3a9f880820" category="paragraph">ネットワークとセキュリティに関する質問を次に示します。</block>
+  <block id="f1285f12f811c782f68e847eb5915de3" category="list-text"><block ref="f1285f12f811c782f68e847eb5915de3" category="inline-link-macro-rx"></block></block>
+  <block id="51526efcaf0cdc54c61438382119812a" category="list-text"><block ref="51526efcaf0cdc54c61438382119812a" category="inline-link-macro-rx"></block></block>
+  <block id="616f224ea695eac57c5722b0a20e0e0f" category="list-text"><block ref="616f224ea695eac57c5722b0a20e0e0f" category="inline-link-macro-rx"></block></block>
+  <block id="b5dd11e41ad7a813bfe7dad0ea574253" category="list-text"><block ref="b5dd11e41ad7a813bfe7dad0ea574253" category="inline-link-macro-rx"></block></block>
+  <block id="aaa3c198f069c55aebfe4cb17882c73c" category="list-text"><block ref="aaa3c198f069c55aebfe4cb17882c73c" category="inline-link-macro-rx"></block></block>
+  <block id="d338c5fdb9585e3e04e3d27f58422278" category="section-title">クラウドに保存されたコールドデータを管理するために、監視とレポートに使用できるツールはどれですか？</block>
+  <block id="5ecb6b24c169667ff1a176768115659e" category="inline-link">Active IQ Unified Manager</block>
+  <block id="dab2edf9eaac3950e92c281ce358af01" category="inline-link">Active IQ デジタルアドバイザ</block>
+  <block id="457839e2cfab34024cc5d7af42ac3a5f" category="paragraph">Cloud Tiering以外、<block ref="5ed6ecd932db92d4be0f0df08b269167" category="inline-link-rx"></block> および<block ref="f7c27c91081209d9919b1be7040611f3" category="inline-link-rx"></block> 監視とレポートに使用できます。</block>
+  <block id="b8a7918ef33be8759255aec95c404a42" category="section-title">クラウドプロバイダへのネットワークリンクに障害が発生した場合、どのような影響がありますか。</block>
+  <block id="4ba6eaf1775e43d67b327809a4b849b2" category="paragraph">ネットワーク障害が発生しても、ローカルのパフォーマンス階層はオンラインのままで、ホットデータには引き続きアクセスできます。ただし、クラウド階層にすでに移動されているブロックにはアクセスできず、アプリケーションからそのデータにアクセスしようとするとエラーメッセージが表示されます。接続が回復すると、すべてのデータにシームレスにアクセスできるようになります。</block>
+  <block id="eedcfa982383398670f78619f12b3aa3" category="section-title">ネットワーク帯域幅の推奨事項はありますか。</block>
+  <block id="215da7b09b683835056bcb1422a7d86a" category="paragraph">基盤となるFabricPool 階層化テクノロジの読み取りレイテンシは、クラウド階層への接続によって異なります。階層化はどの帯域幅でも機能しますが、適切なパフォーマンスを得るためには、インタークラスタLIFを10Gbpsポートに配置することを推奨します。コネクタに関する推奨事項や帯域幅の制限はありません。</block>
+  <block id="96ae64d60b6d30430f56e7afb74b0084" category="section-title">ユーザが階層化データにアクセスしようとしたときにレイテンシは発生しますか。</block>
+  <block id="8423b9893d6714e384ac5ab89484c361" category="paragraph">はい。レイテンシは接続によって異なるため、クラウド階層と同じレイテンシを提供することはできません。オブジェクトストアのレイテンシとスループットを見積もるために、Cloud Tieringは、クラウドのパフォーマンステストを提供します（ONTAP オブジェクトストアプロファイラに基づく）。このテストは、オブジェクトストアの接続後、階層化のセットアップ前に使用できます。</block>
+  <block id="2041cf86183d9e837c59c889cba71a41" category="section-title">データのセキュリティはどのようにして確保されます</block>
+  <block id="442a0da1ce36639f5c492565d5f4eaa2" category="paragraph">パフォーマンス階層とクラウド階層の両方でAES-256-GCM暗号化が維持されます。TLS 1.2暗号化は、階層間を移動するときにネットワーク経由でデータを暗号化するため、およびコネクタとONTAP クラスタとオブジェクトストアの両方の間の通信を暗号化するために使用されます。</block>
+  <block id="56a13abd2c09f8f69c9bc676e127e5d9" category="section-title">AFF にイーサネットポートをインストールして設定する必要がありますか。</block>
+  <block id="db5702fcf8c9d887ce36ddb56a8e8e04" category="paragraph">はい。クラスタ間LIFは、クラウドに階層化するデータを含むボリュームをホストするHAペア内の各ノード上のイーサネットポートに設定する必要があります。詳細については、データを階層化するクラウドプロバイダの要件に関するセクションを参照してください。</block>
+  <block id="1d1150417245464a6bc4030ff12d98ba" category="section-title">どのような権限が必要ですか？</block>
+  <block id="6d7e8531e0360d0263e2ca053e0a6984" category="inline-link-macro">Amazonの場合、S3バケットを管理するには権限が必要です</block>
+  <block id="b5e9a7479354c252182b9aed30eceb39" category="list-text"><block ref="4473d2f13ecb5bcf1020f029ee281cf8" category="inline-link-macro-rx"></block>。</block>
+  <block id="7b051265cea15bef56b2013258a3a024" category="list-text">Azureでは、Cloud Managerに提供する必要のある権限以外で追加の権限は必要ありません。</block>
+  <block id="ba49bda4c6c598703b1a9de3bd715d7f" category="inline-link-macro">Google Cloudの場合、ストレージアクセスキーを含むサービスアカウントにはストレージ管理者権限が必要です</block>
+  <block id="b416160ef653d48172d39e018c5edc09" category="list-text"><block ref="6da5859ea88129ba1f8030c6efa043ea" category="inline-link-macro-rx"></block>。</block>
+  <block id="6e7f22bebfa4a36d17ec5f7763059b4c" category="inline-link-macro">StorageGRID の場合は、S3権限が必要です</block>
+  <block id="bb0fe2f5bdb8e22816e9fa5b1026a7f4" category="list-text"><block ref="e1a02e457fa8607cad7bf299625a3fdd" category="inline-link-macro-rx"></block>。</block>
+  <block id="049da913e478d360bf3fba0732f3ffe7" category="inline-link-macro">S3互換オブジェクトストレージの場合は、S3権限が必要です</block>
+  <block id="de865f0ebc8f66fc8e1331d7e2a7f1d4" category="list-text"><block ref="2efc8cc4b2027ed3eb0bfad94737c839" category="inline-link-macro-rx"></block>。</block>
+  <block id="5904ecfefb0147d2c35e92234f70dbd9" category="paragraph">次の構成のONTAP クラスタでは、クラウド階層化ライセンスを使用できますが、通常のシングルノードクラスタおよびHA構成のONTAP クラスタとは異なる方法でライセンスを適用する必要があります。</block>
+  <block id="4bf0695d13fdb9614e4d0abba617654f" category="paragraph">FabricPool ミラーを使用したMetroCluster 構成は、現在のところサポートされていません</block>
 </blocks>
