@@ -691,7 +691,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 08:17:46 +0000">04/18/2022</time>
+    <time datetime="2022-05-04 13:00:38 +0000">05/04/2022</time>
     
   
 
@@ -850,10 +850,10 @@ Your browser does not support the video tag.
 <div class="sect2">
 <h3 id="2021-年-8-月-21-日以降-cloud-tiering-byol-の新しいライセンス">2021 年 8 月 21 日以降、 Cloud Tiering BYOL の新しいライセンス</h3>
 <div class="paragraph">
-<p>Cloud Tiering サービスを使用した Cloud Manager 内でサポートされる階層化構成の新しい * Cloud Tiering * ライセンスが、 2021 年 8 月に導入されました。Cloud Manager は、現在、 Amazon S3 、 Azure Blob Storage 、 Google Cloud Storage 、 S3 互換オブジェクトストレージ、 StorageGRID などのクラウドストレージへの階層化をサポートしています。</p>
+<p>Cloud Tiering サービスを使用した Cloud Manager 内でサポートされる階層化構成の新しい * Cloud Tiering * ライセンスが、 2021 年 8 月に導入されました。Cloud Managerでは、現在、Amazon S3、Azure Blob Storage、Google Cloud Storage、S3互換オブジェクトストレージ、IBM Cloud Object Storage、StorageGRID などのクラウドストレージへの階層化をサポートしています。</p>
 </div>
 <div class="paragraph">
-<p>従来、オンプレミス ONTAP データをクラウドに階層化するために使用していた * FabricPool * ライセンスは、インターネットにアクセスできないサイト（「ダークサイト」とも呼ばれます）の ONTAP 環境でのみ保持されています。ダークサイトに導入する場合は、 System Manager または ONTAP CLI を使用して、各クラスタに FabricPool ライセンスをインストールします。</p>
+<p>これまでオンプレミスONTAP データをクラウドに階層化するために使用していたFabricPool *ライセンスは、インターネットにアクセスできないサイト（「ダークサイト」とも呼ばれる）やFabricPool ミラーを使用するMetroCluster システムのONTAP 環境でのみ保持されていました。これらの構成を使用している場合は、System ManagerまたはONTAP CLIを使用して、各クラスタにFabricPool ライセンスをインストールします。</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1034,6 +1034,105 @@ StorageGRID への階層化には、 FabricPool とクラウドの階層化ラ�
 </div>
 <div class="paragraph">
 <p>Cloud Manager によってライセンスが更新され、 Cloud Tiering サービスがアクティブな状態で維持されます。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="特別な構成のクラスタにcloud-tieringライセンスを適用します">特別な構成のクラスタにCloud Tieringライセンスを適用します</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>次の構成のONTAP クラスタでは、クラウド階層化ライセンスを使用できますが、通常のシングルノードクラスタおよびHA構成のONTAP クラスタとは別の方法で適用する必要があります。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>階層化ミラー構成のクラスタ（2つのオブジェクトストアに接続されているクラスタ）</p>
+<div class="paragraph">
+<p>MetroCluster 構成を使用したFabricPool ミラーは、現在のところサポートされていません</p>
+</div>
+</li>
+<li>
+<p>IBM Cloud Object Storageに階層化されたクラスタ</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="fabricpool-ライセンスのある既存のクラスタ向けのプロセス">FabricPool ライセンスのある既存のクラスタ向けのプロセス</h3>
+<div class="paragraph">
+<p>いつでも <a href="task-managing-tiering.html#discovering-additional-clusters-from-cloud-tiering">"Cloud Tieringで、これらの特別なクラスタタイプを検出できます"</a>、Cloud Tieringは、FabricPool ライセンスを認識し、デジタルウォレットにライセンスを追加します。これらのクラスタは、通常どおりデータの階層化を継続します。FabricPool ライセンスの有効期限が切れたら、Cloud Tieringライセンスを購入する必要があります。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="新しく作成したクラスタ用のプロセス">新しく作成したクラスタ用のプロセス</h3>
+<div class="paragraph">
+<p>Cloud Tieringで一般的なクラスタを検出すると、クラウド階層化インターフェイスを使用して階層化を設定できます。このような場合は、次の処理が行われます。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>「parent」のCloud Tieringライセンスは、すべてのクラスタによる階層化に使用されている容量を追跡し、ライセンスに十分な容量があることを確認します</p>
+</li>
+<li>
+<p>Digital Walletの「親」ライセンスと通信するために、各クラスタに「子」の階層化ライセンスが自動的にインストールされます</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>上記の2つの構成については、System ManagerまたはONTAP CLI（クラウド階層化インターフェイスではない）を使用して階層化を設定する必要があります。その場合は、「子」のライセンスをクラウド階層化インターフェイスから手動でこれらのクラスタにプッシュする必要があります。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-tiering/images/tip.svg" alt="ヒント">
+</td>
+<td class="content">
+階層化ミラー構成ではデータが2つの異なるオブジェクトストレージに階層化されるため、両方の場所に階層化するための十分な容量を持つライセンスを購入する必要があります。
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">手順</div>
+<ol class="arabic">
+<li>
+<p>System ManagerまたはONTAP CLIを使用して、ONTAP クラスタをインストールして設定します。</p>
+<div class="paragraph">
+<p>この時点では階層化を設定しないでください。</p>
+</div>
+</li>
+<li>
+<p><a href="task-licensing-cloud-tiering.html#use-a-cloud-tiering-byol-license">"Cloud Tieringライセンスを購入"</a> をクリックします。</p>
+</li>
+<li>
+<p>Cloud Managerで、 <a href="task-licensing-cloud-tiering.html#add-cloud-tiering-byol-licenses-to-your-account">"ライセンスをデジタルウォレットに追加します"</a>。</p>
+</li>
+<li>
+<p>Cloud Tieringで、 <a href="task-managing-tiering.html#discovering-additional-clusters-from-cloud-tiering">"新しいクラスタを検出"</a>。</p>
+</li>
+<li>
+<p>クラスタダッシュボードで、をクリックします <span class="image"><img src="./media/screenshot_horizontal_more_button.gif" alt="&quot;[ 詳細"></span> アイコン"] クラスタの場合は、*ライセンスの導入*を選択します。</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_tiering_deploy_license.png" alt="ONTAP クラスタに階層化ライセンスを導入する方法を示すスクリーンショット。"></span></p>
+</div>
+</li>
+<li>
+<p>_Deploy License_Dialogで、* Deploy *をクリックします。</p>
+<div class="paragraph">
+<p>子ライセンスがONTAP クラスタに導入されている。</p>
+</div>
+</li>
+<li>
+<p>System ManagerまたはONTAP CLIに戻り、階層化設定をセットアップします。</p>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/ontap/fabricpool/manage-mirrors-task.html" target="_blank" rel="noopener">"FabricPool ミラーの構成情報"</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/ontap/fabricpool/setup-ibm-object-storage-cloud-tier-task.html" target="_blank" rel="noopener">"IBM Cloud Object Storage情報への階層化"</a></p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>

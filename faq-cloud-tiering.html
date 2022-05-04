@@ -691,7 +691,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 08:17:46 +0000">04/18/2022</time>
+    <time datetime="2022-05-04 13:00:38 +0000">05/04/2022</time>
     
   
 
@@ -739,7 +739,7 @@
 <div class="sect2">
 <h3 id="どのような種類の-ontap-システムがサポートされていますか">どのような種類の ONTAP システムがサポートされていますか。</h3>
 <div class="paragraph">
-<p>クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。</p>
+<p>クラウド階層化は、シングルノードクラスタとハイアベイラビリティAFF 、FAS クラスタ、ONTAP Select クラスタでサポートされています。FabricPool ミラー構成のクラスタもサポートされますが、構成についてはSystem ManagerまたはONTAP CLIを使用して実行する必要があります。</p>
 </div>
 </div>
 <div class="sect2">
@@ -789,7 +789,29 @@ Cloud Tiering を使用すると、クラスタで ONTAP 9.6 以降が実行さ�
 <div class="sect2">
 <h3 id="サポートされているオブジェクトストレージプロバイダを教えてください">サポートされているオブジェクトストレージプロバイダを教えてください。</h3>
 <div class="paragraph">
-<p>Amazon S3 、 Azure BLOB ストレージ、 Google Cloud Storage 、 NetApp StorageGRID 、および S3 互換のオブジェクトストレージプロバイダがサポートされます。</p>
+<p>Cloud Tieringは、次のオブジェクトストレージプロバイダをサポートしています。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Amazon S3</p>
+</li>
+<li>
+<p>Microsoft Azure Blob</p>
+</li>
+<li>
+<p>Google クラウドストレージ</p>
+</li>
+<li>
+<p>NetApp StorageGRID</p>
+</li>
+<li>
+<p>S3 互換オブジェクトストレージ</p>
+</li>
+<li>
+<p>IBM Cloud Object Storage（ただし、FabricPool の設定はSystem ManagerまたはONTAP CLIを使用して実行する必要があります）</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">

@@ -691,7 +691,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 08:17:46 +0000">04/18/2022</time>
+    <time datetime="2022-05-04 13:00:38 +0000">05/04/2022</time>
     
   
 
@@ -707,19 +707,10 @@
 <p>Cloud Tiering サービスには、 FabricPool の機能が活用されています。FabricPool はネットアップデータファブリックのテクノロジで、低コストのオブジェクトストレージへデータを自動で階層化することができます。アクティブな（ホットな）データはローカル階層（オンプレミスの ONTAP アグリゲート）に残り、アクセス頻度の低い（コールド）データはクラウド階層に移動されます。移動されると、 ONTAP のデータ効率は維持されます。</p>
 </div>
 <div class="paragraph">
-<p>従来、オール SSD アグリゲートを使用する AFF および FAS システムでサポートされていた ONTAP 9.8 以降では、高性能の SSD に加え、 HDD で構成されるアグリゲートからデータを階層化できます。を参照してください <a href="https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html" target="_blank" rel="noopener">"FabricPool を使用する際の考慮事項と要件"</a> を参照してください。</p>
+<p>オールSSDアグリゲートを使用するAFF 、FAS 、およびONTAP Select システムでサポートされていたのは、ONTAP 9.8以降で、高性能のSSDに加え、HDDで構成されるアグリゲートからデータを階層化できるようになりました。を参照してください <a href="https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html" target="_blank" rel="noopener">"FabricPool を使用する際の考慮事項と要件"</a> を参照してください。</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/cloud-manager-tiering/images/tip.svg" alt="ヒント">
-</td>
-<td class="content">
-クラウド階層化は、 AFF 、 FAS 、 ONTAP Select の各システムでサポートされています。
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Cloud Tieringライセンスは、FabricPool ミラー構成内のクラスタと共有できます（MetroCluster 構成は含まれません）。FabricPool の設定は、System ManagerまたはONTAP CLIを使用し、実行する必要があります <a href="https://docs.netapp.com/us-en/cloud-manager-tiering/task-licensing-cloud-tiering.html#apply-cloud-tiering-licenses-to-clusters-in-special-configurations">"これらのタイプのクラスタのライセンスは、Cloud Tieringを使用して提供されています。"</a></p>
 </div>
 </div>
 </div>
@@ -792,6 +783,9 @@ Cloud Volumes ONTAP システムは、 Cloud Tiering から読み取り専用で
 <p>NetApp StorageGRID</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Cloud Tieringライセンスは、IBM Cloud Object Storageにデータを階層化するクラスタと共有できます。FabricPool の設定は、System ManagerまたはONTAP CLIを使用して実行する必要があります <a href="https://docs.netapp.com/us-en/cloud-manager-tiering/task-licensing-cloud-tiering.html#apply-cloud-tiering-licenses-to-clusters-in-special-configurations">"このタイプの構成のライセンスは、Cloud Tieringを使用して提供されています。"</a></p>
 </div>
 <div class="admonitionblock note">
 <table>
