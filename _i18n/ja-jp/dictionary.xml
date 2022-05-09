@@ -503,9 +503,6 @@
   <block id="a315b97ead114b01711324b00318fede" category="paragraph">Cloud Tiering は、 _Standard_、 _Nearline _ 、 _Coldline_、 および _Archive_storage の各クラスへのデータ階層化をサポートしています。を参照してください <block ref="7bf35a231ca3eab0ba1eb206f6515726" category="inline-link-macro-rx"></block> 詳細：</block>
   <block id="cbf85819c0ec3bd08aea6103a838e42f" category="section-title">Cloud Tiering は、クラスタ全体に 1 つのオブジェクトストアを使用していますか、それともアグリゲートごとに 1 つ使用していますか</block>
   <block id="cb8d52e5219592f36bdfb68231d97d04" category="paragraph">クラスタ全体で 1 つのオブジェクトストアを使用します。</block>
-  <block id="bda5b6e359cdbe29207c5288673c5583" category="section-title">階層化とは関係なくオブジェクトストアにポリシーを適用してデータを移動できますか。</block>
-  <block id="76897a6305088a3a5d1fece5a33249ea" category="paragraph">はい。ライフサイクル管理を有効にすると、 Cloud Tiering でデータをデフォルトのストレージクラス / アクセス階層から、一定期間後にコスト効率の高い階層に移行できます。</block>
-  <block id="984a9d1964e75fac051f5e1514887373" category="paragraph">ライフサイクルルールは、選択したバケット内の Amazon S3 および Google Cloud ストレージのすべてのオブジェクト、および選択したストレージアカウント内の Azure Blob に対応するすべてのコンテナに適用されます。</block>
   <block id="fe4a785cf549e843e958f443c4baf0fe" category="section-title">コネクタ</block>
   <block id="417cf0f3678f81efde443c4a85c2acb8" category="section-title">コネクタはどこに取り付ける必要がありますか？</block>
   <block id="ca4f429ffa25591e74f6645a3406d7cd" category="list-text">データを S3 に階層化する場合、コネクタは AWS VPC またはオンプレミスに配置できます。</block>
@@ -1021,9 +1018,7 @@
   <block id="75e192e543376cd0700d28d7707c1400" category="section-title">同じクラスタ内のノード間でボリュームを移動すると、階層化データはどうなりますか？</block>
   <block id="c8e8c3de3c7e9a3523115f25ca436702" category="paragraph">デスティネーションアグリゲートにクラウド階層が接続されていない場合、データはソースアグリゲートのクラウド階層から読み取られ、デスティネーションアグリゲートのローカル階層に完全に書き込まれます。デスティネーションアグリゲートにクラウド階層が接続されている場合、データはソースアグリゲートのクラウド階層から読み取られ、最初にデスティネーションアグリゲートのローカル階層に書き込まれます。これにより、迅速なカットオーバーが可能になります。その後、使用された階層化ポリシーに基づいてクラウド階層に書き込まれます。</block>
   <block id="4eb0e04ff79ba8e58d2cc578b23ac20a" category="paragraph">ONTAP 9.6以降では、デスティネーションアグリゲートがソースアグリゲートと同じクラウド階層を使用している場合、コールドデータはローカル階層に戻されません。</block>
-  <block id="67c448fda360e613a946c8d4f3fe8903" category="section-title">階層化されたデータをオンプレミスに戻すにはどうすればよいですか？</block>
   <block id="594e5f8f87d3f9aee64730282f1d9d11" category="inline-link-macro">データを高パフォーマンス階層に戻す方法をご覧ください</block>
-  <block id="4f73c67002a9ff6531da278f92c08e2e" category="paragraph">ライトバックは通常、読み取り時に実行され、階層化ポリシーのタイプによって異なります。ONTAP 9.8より前のバージョンでは、ボリューム移動処理を使用してボリューム全体を書き戻すことができます。9.8以降、階層化UIには、すべてのデータを*元に戻すオプションや*アクティブファイルシステムを戻すオプションがあります。 <block ref="5fc989c9b1011f539a0df96bd559f635" category="inline-link-macro-rx"></block>。</block>
   <block id="5b9fbe75fbcd16763752424288950fad" category="section-title">既存のAFF / FASコントローラを新しいコントローラに交換する場合、階層化データをオンプレミスに戻すことはできますか。</block>
   <block id="954ab271743046342c8c477272ccf1e2" category="paragraph">いいえ「ヘッド交換」手順 で変更されるのは、アグリゲートの所有権だけです。この場合、データを移動することなく新しいコントローラに変更されます。</block>
   <block id="9ae27577765a14f9c236003effe69e5e" category="section-title">ディザスタリカバリのシナリオで、階層化されたデータを使用してボリュームまたはシステムをリカバリできますか。</block>
@@ -1097,4 +1092,10 @@
   <block id="de865f0ebc8f66fc8e1331d7e2a7f1d4" category="list-text"><block ref="2efc8cc4b2027ed3eb0bfad94737c839" category="inline-link-macro-rx"></block>。</block>
   <block id="5904ecfefb0147d2c35e92234f70dbd9" category="paragraph">次の構成のONTAP クラスタでは、クラウド階層化ライセンスを使用できますが、通常のシングルノードクラスタおよびHA構成のONTAP クラスタとは異なる方法でライセンスを適用する必要があります。</block>
   <block id="4bf0695d13fdb9614e4d0abba617654f" category="paragraph">FabricPool ミラーを使用したMetroCluster 構成は、現在のところサポートされていません</block>
+  <block id="6ace93b12d62dd3912b132e79298337d" category="section-title">Cloud Tieringは、ボリュームの容量にどのような影響を及ぼしますか？</block>
+  <block id="9edbed19ba22406e2515654036d6d7af" category="paragraph">Cloud Tieringは、ボリュームの容量には影響しませんが、アグリゲートのパフォーマンス階層の使用率には影響しません。</block>
+  <block id="bd661fa541ade4c845ce21fee80a6364" category="section-title">Cloud Tieringは、ライフサイクル管理ポリシーの使用をサポートしていますか。</block>
+  <block id="ab432a40ce280c4620566a0570350625" category="paragraph">はい。ライフサイクル管理を有効にすると、 Cloud Tiering でデータをデフォルトのストレージクラス / アクセス階層から、一定期間後にコスト効率の高い階層に移行できます。ライフサイクルルールは、選択したバケット内の Amazon S3 および Google Cloud ストレージのすべてのオブジェクト、および選択したストレージアカウント内の Azure Blob に対応するすべてのコンテナに適用されます。</block>
+  <block id="864bccaf8b856c65bcec49d71eaad8e6" category="section-title">階層化したデータをオンプレミスからパフォーマンス階層に戻すにはどうすればよいですか？</block>
+  <block id="f8677b4c8b811cc562ebfa540cd716ff" category="paragraph">ライトバックは通常、読み取り時に実行され、階層化ポリシーのタイプによって異なります。ONTAP 9.8より前のバージョンでは、_volume move_operationを使用して、ボリューム全体の書き込みを行うことができます。ONTAP 9.8以降、階層化UIには、すべてのデータを*戻すオプションやアクティブファイルシステムを戻すオプションがあります。 <block ref="5fc989c9b1011f539a0df96bd559f635" category="inline-link-macro-rx"></block>。</block>
 </blocks>
