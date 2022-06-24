@@ -896,16 +896,12 @@
   <block id="6ddd4d2b3e22e1f0dbfa3f2cfb99611d" category="paragraph">これまでオンプレミスONTAP データをクラウドに階層化するために使用していたFabricPool *ライセンスは、インターネットにアクセスできないサイト（「ダークサイト」とも呼ばれる）やFabricPool ミラーを使用するMetroCluster システムのONTAP 環境でのみ保持されていました。これらの構成を使用している場合は、System ManagerまたはONTAP CLIを使用して、各クラスタにFabricPool ライセンスをインストールします。</block>
   <block id="d99641589694e93765fada1790db2a0e" category="section-title">特別な構成のクラスタにCloud Tieringライセンスを適用します</block>
   <block id="ec4ebd20c319e970c3f59b1f47802c0b" category="list-text">階層化ミラー構成のクラスタ（2つのオブジェクトストアに接続されているクラスタ）</block>
-  <block id="04b39654e6e5a443553195d1e2779190" category="list-text">IBM Cloud Object Storageに階層化されたクラスタ</block>
   <block id="c8fe0ffee9071759c56b9a7d98bae676" category="section-title">FabricPool ライセンスのある既存のクラスタ向けのプロセス</block>
   <block id="1451b23352470f925dac87a3da139fca" category="inline-link-macro">Cloud Tieringで、これらの特別なクラスタタイプを検出できます</block>
   <block id="f9e397eb4495d4b3c8a7097b4ea8b610" category="paragraph">いつでも <block ref="20b85fbda0982633cbcc10be992f4ea5" category="inline-link-macro-rx"></block>、Cloud Tieringは、FabricPool ライセンスを認識し、デジタルウォレットにライセンスを追加します。これらのクラスタは、通常どおりデータの階層化を継続します。FabricPool ライセンスの有効期限が切れたら、Cloud Tieringライセンスを購入する必要があります。</block>
   <block id="eb5050df74a7237bec4864cad6113b55" category="section-title">新しく作成したクラスタ用のプロセス</block>
   <block id="9cf61e4fc9ad253b398c1c3be905176d" category="paragraph">Cloud Tieringで一般的なクラスタを検出すると、クラウド階層化インターフェイスを使用して階層化を設定できます。このような場合は、次の処理が行われます。</block>
-  <block id="dc0f43ea8bf22779955c42555129035b" category="list-text">「parent」のCloud Tieringライセンスは、すべてのクラスタによる階層化に使用されている容量を追跡し、ライセンスに十分な容量があることを確認します</block>
-  <block id="c2b88dd33c3d9222a13179594b55f74e" category="list-text">Digital Walletの「親」ライセンスと通信するために、各クラスタに「子」の階層化ライセンスが自動的にインストールされます</block>
   <block id="5c47f5b94c062cb59e1084e7104a35ad" category="paragraph">上記の2つの構成については、System ManagerまたはONTAP CLI（クラウド階層化インターフェイスではない）を使用して階層化を設定する必要があります。その場合は、「子」のライセンスをクラウド階層化インターフェイスから手動でこれらのクラスタにプッシュする必要があります。</block>
-  <block id="6cd8bf8bc514f4f1998e5110df5d1db8" category="admonition">階層化ミラー構成ではデータが2つの異なるオブジェクトストレージに階層化されるため、両方の場所に階層化するための十分な容量を持つライセンスを購入する必要があります。</block>
   <block id="f457a5079118a07f91a021318abf923e" category="list-text">System ManagerまたはONTAP CLIを使用して、ONTAP クラスタをインストールして設定します。</block>
   <block id="a91bdb81c68f1a37a469fa1d5933a14b" category="paragraph">この時点では階層化を設定しないでください。</block>
   <block id="a49fb32c3dc821374473edfc6c43950a" category="inline-link-macro">Cloud Tieringライセンスを購入</block>
@@ -1098,4 +1094,9 @@
   <block id="ab432a40ce280c4620566a0570350625" category="paragraph">はい。ライフサイクル管理を有効にすると、 Cloud Tiering でデータをデフォルトのストレージクラス / アクセス階層から、一定期間後にコスト効率の高い階層に移行できます。ライフサイクルルールは、選択したバケット内の Amazon S3 および Google Cloud ストレージのすべてのオブジェクト、および選択したストレージアカウント内の Azure Blob に対応するすべてのコンテナに適用されます。</block>
   <block id="864bccaf8b856c65bcec49d71eaad8e6" category="section-title">階層化したデータをオンプレミスからパフォーマンス階層に戻すにはどうすればよいですか？</block>
   <block id="f8677b4c8b811cc562ebfa540cd716ff" category="paragraph">ライトバックは通常、読み取り時に実行され、階層化ポリシーのタイプによって異なります。ONTAP 9.8より前のバージョンでは、_volume move_operationを使用して、ボリューム全体の書き込みを行うことができます。ONTAP 9.8以降、階層化UIには、すべてのデータを*戻すオプションやアクティブファイルシステムを戻すオプションがあります。 <block ref="5fc989c9b1011f539a0df96bd559f635" category="inline-link-macro-rx"></block>。</block>
+  <block id="b56c6599c26215b1aa75689a41e8233c" category="list-text">データをIBM Cloud Object Storageに階層化するクラスタ</block>
+  <block id="2885d7c48d39d4d14b99f3f10676ffa9" category="list-text">「parent」のCloud Tieringライセンスは、すべてのクラスタによる階層化に使用されている容量を追跡し、ライセンスに十分な容量があることを確認します。ライセンスで許可された容量と有効期限の合計がデジタルウォレットに表示されます。</block>
+  <block id="7598b57246c073bebfc5a46a79eecdd5" category="list-text">「親」ライセンスと通信するために、各クラスタに「子」階層化ライセンスが自動的にインストールされます。</block>
+  <block id="fbad6353250385bdb538aa04a8ef4983" category="admonition">System ManagerまたはONTAP CLIの「子」ライセンスに表示されるライセンス容量と有効期限は実際の情報ではないため、情報が異なる場合は問題となりません。これらの値は、Cloud Tieringソフトウェアによって内部的に管理されます。実際の情報はデジタルウォレットで追跡されます。</block>
+  <block id="8646b811e05af9f8486c9225ac0c39f3" category="paragraph">階層化ミラー構成では、データは2つの異なるオブジェクトストレージに階層化されるため、両方の場所にデータを階層化するための十分な容量を持つライセンスを購入する必要があります。</block>
 </blocks>
