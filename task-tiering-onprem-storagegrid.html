@@ -258,11 +258,13 @@
           <div id="react-search" 
           data-search-html="/ja-jp/cloud-manager-tiering/search.html"
           data-type="widget" 
-          data-placeholder="ドキュメントを検索" 
-          data-no-results-found="{query}に該当する結果はありません" 
-          data-did-you-mean="{suggestion} を検索" 
-          data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?" 
-          data-results-found="{hitCount} 件見つかりました"  
+          data-placeholder="ドキュメントを検索"
+          data-no-results-found="{query}に該当する結果はありません"
+          data-did-you-mean="{suggestion} を検索"
+          data-no-results-found-did-you-mean="{query} に該当する結果はありません。{suggestion} の間違いではありませんか?"
+          data-results-found="{hitCount} 件見つかりました"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
           data-sk-es-pf-indexes=""
           data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
@@ -669,7 +671,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 08:17:46 +0000">04/18/2022</time>
+    <time datetime="2022-07-12 16:04:55 +0000">07/12/2022</time>
     
   
 
@@ -776,7 +778,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ONTAP クラスタは、ユーザ指定のポートから StorageGRID への HTTPS 接続を開始します（階層化のセットアップ時に設定可能です）。</p>
+<p>ONTAP クラスタは、ユーザ指定のポートを使用してStorageGRID ゲートウェイノードへのHTTPS接続を開始します（このポートは階層化のセットアップ時に設定可能です）。</p>
 <div class="paragraph">
 <p>ONTAP は、オブジェクトストレージとの間でデータの読み取りと書き込みを行います。オブジェクトストレージが開始されることはなく、応答するだけです。</p>
 </div>
@@ -926,7 +928,7 @@ Cloud Tiering は、 ONTAP 9.5 以降、 FlexGroup ボリュームをサポー�
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html" target="_blank" rel="noopener">"オンプレミスの作業環境"</a>。</p>
 </li>
 <li>
-<p>StorageGRID サーバの FQDN と、 HTTPS 通信に使用するポート。</p>
+<p>StorageGRID ゲートウェイノードのFQDNと、HTTPS通信に使用するポート。</p>
 </li>
 <li>
 <p>必要な S3 権限を持つ AWS アクセスキー。</p>
@@ -953,7 +955,7 @@ Cloud Tiering は、 ONTAP 9.5 以降、 FlexGroup ボリュームをサポー�
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>* サーバ * ： StorageGRID サーバの FQDN 、 StorageGRID が ONTAP との HTTPS 通信に使用するポート、および必要な S3 権限を持つアカウントのアクセスキーとシークレットキーを入力します。</p>
+<p><strong>サーバ</strong>：StorageGRID ゲートウェイノードのFQDN、ONTAP がStorageGRID とのHTTPS通信に使用するポート、および必要なS3権限を持つアカウントのアクセスキーとシークレットキーを入力します。</p>
 </li>
 <li>
 <p>* Bucket * ：新しいバケットを追加するか、 prefix_fabric-pool_ で始まる既存のバケットを選択し、 * Continue * をクリックします。</p>
