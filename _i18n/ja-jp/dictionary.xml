@@ -136,7 +136,6 @@
   <block id="183b2a428b6d80ef4823ebe68b96c34d" category="list-text">ONTAP 9.4 以降</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="list-text">ライセンス</block>
   <block id="9cda06c7df5991375adfd503e3cc7329" category="list-text">Cloud Manager アカウントには Cloud Tiering ライセンスは必要 FabricPool ありません。また、 StorageGRID にデータを階層化する場合、 Cloud Tiering ライセンス ONTAP は必要ありません。</block>
-  <block id="90f0a3a28474de656c0a9aff945622b8" category="list-text">ONTAP クラスタは、ユーザ指定のポートから StorageGRID への HTTPS 接続を開始します（階層化のセットアップ時に設定可能です）。</block>
   <block id="b00b6421202892ef9c6f947253e944b4" category="list-text">コネクタからのインバウンド接続が必要です。この接続はオンプレミスにある必要があります。</block>
   <block id="3cb09efd98df836314cbd254dcf63296" category="admonition">Cloud Tiering は、 ONTAP 9.5 以降、 FlexGroup ボリュームをサポートしています。セットアップは他のボリュームと同じように機能します。</block>
   <block id="32c974abc8de44f817076a1e8eb5d4c8" category="paragraph">コールドデータの階層化を開始する前に、オンプレミスの ONTAP 作業環境を Cloud Manager キャンバスに作成する必要があります。</block>
@@ -154,12 +153,10 @@
   <block id="a3049b761ff526799f3b1881932b1c8c" category="list-text">ポート 443 から StorageGRID への HTTPS 接続</block>
   <block id="de9570886e9849852133b61caefd03b2" category="section-title">最初のクラスタから StorageGRID にアクセス頻度の低いデータを階層化しています</block>
   <block id="a71f0f53c9824602e78a79bc5fa52d43" category="paragraph">環境を準備したら、最初のクラスタからアクセス頻度の低いデータの階層化を開始します。</block>
-  <block id="d30a5cb40eea3a32f653b4e43b30bbf1" category="list-text">StorageGRID サーバの FQDN と、 HTTPS 通信に使用するポート。</block>
   <block id="1b8a3756b590cb811f9726f247097028" category="list-text">必要な S3 権限を持つ AWS アクセスキー。</block>
   <block id="85cd1fc1600a51fdeb99ebc5121fa64e" category="inline-image-macro">オンプレミスの ONTAP 作業環境を選択したあとに画面の右側に表示される「階層化の設定」オプションを示すスクリーンショット。</block>
   <block id="23d57e0aa543c12cc6f2de0e1d5a38fb" category="paragraph"><block ref="23d57e0aa543c12cc6f2de0e1d5a38fb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b9a857184ba34b2173935c63cafd8508" category="list-text">* プロバイダを選択 * ：「 * StorageGRID * 」を選択し、「 * Continue * 」をクリックします。</block>
-  <block id="7206fa4dd4f20feee98bcfa09c10759c" category="list-text">* サーバ * ： StorageGRID サーバの FQDN 、 StorageGRID が ONTAP との HTTPS 通信に使用するポート、および必要な S3 権限を持つアカウントのアクセスキーとシークレットキーを入力します。</block>
   <block id="4014800981ed7ad3b1ab16a5a86574ce" category="list-text">* Bucket * ：新しいバケットを追加するか、 prefix_fabric-pool_ で始まる既存のバケットを選択し、 * Continue * をクリックします。</block>
   <block id="65baf260014f5ed41f70e43c8bae3790" category="list-text">* クラスタネットワーク * ： ONTAP がオブジェクトストレージへの接続に使用する IPspace を選択し、「 * 続行」をクリックします。</block>
   <block id="6770c476e7cf4e5329f4a574f524ae3a" category="paragraph">適切な IPspace を選択することで、クラウド階層化によって ONTAP から StorageGRID オブジェクトストレージへの接続をセットアップできます。</block>
@@ -1099,4 +1096,7 @@
   <block id="7598b57246c073bebfc5a46a79eecdd5" category="list-text">「親」ライセンスと通信するために、各クラスタに「子」階層化ライセンスが自動的にインストールされます。</block>
   <block id="fbad6353250385bdb538aa04a8ef4983" category="admonition">System ManagerまたはONTAP CLIの「子」ライセンスに表示されるライセンス容量と有効期限は実際の情報ではないため、情報が異なる場合は問題となりません。これらの値は、Cloud Tieringソフトウェアによって内部的に管理されます。実際の情報はデジタルウォレットで追跡されます。</block>
   <block id="8646b811e05af9f8486c9225ac0c39f3" category="paragraph">階層化ミラー構成では、データは2つの異なるオブジェクトストレージに階層化されるため、両方の場所にデータを階層化するための十分な容量を持つライセンスを購入する必要があります。</block>
+  <block id="d356e706a5a76e1d07d019ae07df9f40" category="list-text">ONTAP クラスタは、ユーザ指定のポートを使用してStorageGRID ゲートウェイノードへのHTTPS接続を開始します（このポートは階層化のセットアップ時に設定可能です）。</block>
+  <block id="8763f6e8f73d9edf1525960ebd813b27" category="list-text">StorageGRID ゲートウェイノードのFQDNと、HTTPS通信に使用するポート。</block>
+  <block id="c880a19df6feb2c1dcf1bda2267bb2be" category="list-text">*サーバ*：StorageGRID ゲートウェイノードのFQDN、ONTAP がStorageGRID とのHTTPS通信に使用するポート、および必要なS3権限を持つアカウントのアクセスキーとシークレットキーを入力します。</block>
 </blocks>

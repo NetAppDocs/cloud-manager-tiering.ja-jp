@@ -66,7 +66,7 @@ NOTE: コネクタと StorageGRID 間の通信は、オブジェクトストレ�
 クラスタネットワークの要件::
 +
 --
-* ONTAP クラスタは、ユーザ指定のポートから StorageGRID への HTTPS 接続を開始します（階層化のセットアップ時に設定可能です）。
+* ONTAP クラスタは、ユーザ指定のポートを使用してStorageGRID ゲートウェイノードへのHTTPS接続を開始します（このポートは階層化のセットアップ時に設定可能です）。
 +
 ONTAP は、オブジェクトストレージとの間でデータの読み取りと書き込みを行います。オブジェクトストレージが開始されることはなく、応答するだけです。
 
@@ -155,7 +155,7 @@ S3 クレデンシャル:: StorageGRID への階層化を設定するときは�
 
 .必要なもの
 * https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["オンプレミスの作業環境"^]。
-* StorageGRID サーバの FQDN と、 HTTPS 通信に使用するポート。
+* StorageGRID ゲートウェイノードのFQDNと、HTTPS通信に使用するポート。
 * 必要な S3 権限を持つ AWS アクセスキー。
 
 
@@ -168,7 +168,7 @@ image:screenshot_setup_tiering_onprem.png["オンプレミスの ONTAP 作業環
 . * プロバイダを選択 * ：「 * StorageGRID * 」を選択し、「 * Continue * 」をクリックします。
 . 「 * Tiering Setup * 」ページに記載された手順を実行します。
 +
-.. * サーバ * ： StorageGRID サーバの FQDN 、 StorageGRID が ONTAP との HTTPS 通信に使用するポート、および必要な S3 権限を持つアカウントのアクセスキーとシークレットキーを入力します。
+.. *サーバ*：StorageGRID ゲートウェイノードのFQDN、ONTAP がStorageGRID とのHTTPS通信に使用するポート、および必要なS3権限を持つアカウントのアクセスキーとシークレットキーを入力します。
 .. * Bucket * ：新しいバケットを追加するか、 prefix_fabric-pool_ で始まる既存のバケットを選択し、 * Continue * をクリックします。
 +
 コネクタの IAM ポリシーではインスタンスが指定したプレフィックスのバケットに対して S3 処理を実行できるため、 _fabric-pool_prefix が必要です。たとえば、 S3 バケット _fabric-pool-AFF1_、 AFF1 はクラスタの名前です。
